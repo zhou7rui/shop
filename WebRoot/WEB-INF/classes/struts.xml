@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+	
+	
+	
+	
+    <package name="default" namespace="/" extends="struts-default">
+    <interceptors>
+    	<interceptor name="login" class="com.dzwz.shop.Interceptor.LoginInterceptor" />
+    	<interceptor-stack name="mystack">
+    		<interceptor-ref name="defaultStack"></interceptor-ref>
+    		<interceptor-ref name="login"></interceptor-ref>
+    	</interceptor-stack>
+    	
+    </interceptors>
+    
+    	<action name="success">
+    		<result>/success.jsp</result>
+    		<result name="login">/login.jsp</result>
+    		
+    		<!-- 引用自定义拦截器栈 -->
+    		<interceptor-ref name="mystack"></interceptor-ref>
+    	</action>
+    
+    	<action name="login" class="com.dzwz.shop.action.LoginAction" method="Login">
+    		<result>/success.jsp</result>
+    		<result name="login">/login.jsp</result>
+    	</action>
+    </package>
+</struts>    
