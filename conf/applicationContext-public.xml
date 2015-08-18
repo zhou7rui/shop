@@ -4,9 +4,16 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<context:annotation-config/>
+	
+	
+	<bean id="date" class="java.util.Date"/>
+	
 	
 	<!-- 配置jndi数据源 -->
 	<!-- <bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
@@ -17,7 +24,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="user" value="root" />
 		<property name="password" value="123" />
-		<property name="jdbcUrl" value="jdbc:mysql:///testdb" />
+		<property name="jdbcUrl" value="jdbc:mysql:///test" />
 		<property name="driverClass" value="com.mysql.jdbc.Driver"></property> 
 		<property name="initialPoolSize" value="10"></property>
 		<property name="maxPoolSize" value="50" />
@@ -27,9 +34,12 @@
 	<!-- 得到SessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
 		<property name="configLocation"
 			value="classpath:hibernate.cfg.xml">
 		</property>
+		
+		<property name="mappingLocations" value="classpath:com/dzwz/shop/model/User.hbm.xml"></property>
 	</bean>
 	
 	<!-- 配置声明式事务 -->
@@ -43,7 +53,7 @@
 			<tx:method name="save*" propagation="REQUIRED"/>
 			<tx:method name="delete*" propagation="REQUIRED"/>
 			<tx:method name="update*" propagation="REQUIRED"/>
-			<tx:method name="*" propagation="SUPPORTS"/>
+			<tx:method name="*" />
 		</tx:attributes>
 	</tx:advice>
 	

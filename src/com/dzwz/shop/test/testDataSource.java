@@ -1,15 +1,13 @@
 package com.dzwz.shop.test;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,6 +17,14 @@ public class testDataSource {
 	
 	@Resource
 	private DataSource dataSource;
+	
+	
+	@Resource
+	private Date date;
+	
+	public void test(){
+		System.out.println(date);
+	}
 	
 	@Test
 	public void testDataSource(){

@@ -60,6 +60,25 @@ public class User {
 		this.role = role;
 	}
 	
+	public User(){
+		
+	}
+	
+	public User(Integer id, String userName, String pwd, String phone,
+			float money, String iocn, Date createTime, String role) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.pwd = pwd;
+		this.phone = phone;
+		this.money = money;
+		this.iocn = iocn;
+		this.createTime = createTime;
+		this.role = role;
+	}
+	
+	
+	
 	
 	
 	

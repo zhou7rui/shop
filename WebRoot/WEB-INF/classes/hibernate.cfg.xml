@@ -19,7 +19,6 @@
 		<property name="dialect">
 			org.hibernate.dialect.MySQL5Dialect
 		</property>
-		<mapping resource="com/dzwz/shop/model/TdUser.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

@@ -25,7 +25,7 @@
     		<interceptor-ref name="mystack"></interceptor-ref>
     	</action>
     
-    	<action name="login" class="com.dzwz.shop.action.LoginAction" method="Login">
+    	<action name="login" class="login" method="Login">
     		<result>/success.jsp</result>
     		<result name="login">/login.jsp</result>
     	</action>

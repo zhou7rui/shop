@@ -8,8 +8,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	 
-	 <bean id="userDao" class="com.dzwz.shop.dao.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
+	 <bean id="userService" class="com.dzwz.shop.service.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
 	</bean>  
 
+	
 	</beans>
