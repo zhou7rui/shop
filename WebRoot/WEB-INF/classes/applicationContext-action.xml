@@ -11,6 +11,8 @@
 	 <bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>  
+	
+	<bean id="sendAction" class="com.dzwz.shop.action.SendAction" />
 
 	
 	</beans>

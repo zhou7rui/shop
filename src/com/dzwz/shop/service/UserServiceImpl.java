@@ -1,8 +1,6 @@
 package com.dzwz.shop.service;
 
-import javax.annotation.Resource;
 
-import org.springframework.stereotype.Service;
 
 import com.dzwz.shop.dao.UserDao;
 import com.dzwz.shop.model.User;

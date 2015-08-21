@@ -29,5 +29,10 @@
     		<result>/success.jsp</result>
     		<result name="login">/login.jsp</result>
     	</action>
+
+    	<action name="send_*_*" class="sendAction">
+    		<result name="send">/WEB-INF/{1}/{2}.jsp</result>
+    	</action>
+    	
     </package>
 </struts>    
