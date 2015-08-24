@@ -18,3 +18,9 @@ create table category
    primary key (id)
 );
 
+
+select * from td_user;
+
+insert into td_user(USERNAME,PASSWORD,Phuone,MONEY,ROLE,IOCN,CREATETIME) values();
+
+

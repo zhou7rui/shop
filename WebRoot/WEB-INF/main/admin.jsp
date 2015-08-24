@@ -28,39 +28,23 @@
 		}
 		
 	</style>
-	<script type="text/javascript">
-		$(function() {
-			$("a[title]").click(function() {
-				var text = $(this).text;
-				var href = $(this).attr("title");
-				if ($("#tt").tabs("exists", text)) { //判断面板是否存在
-					//有着显示到这个面板，没有则创建一个
-					$("#tt").tabs("select", text);
-				} else {
-					$("#tt").tabs("add", {
-
-					});
-
-				}
-			});
-		});
-	</script>
+	
 	
   </head>
   
   <body class="easyui-layout"> 
-
+	
     <div data-options="region:'north',title:'易购商城',split:true" style="height:80px;"></div>   
     <div data-options="region:'west',title:'菜单管理',split:true" style="width:150px;">
 	  <div id="aa" class="easyui-accordion" data-options="fit:true">
 	    <div id="menu" title="后台管理"> 
  			<ul>
- 			  <li><a href="#" title="${shop}/send_category_query.action">类别管理</a></li>
- 			  <li><a href="#">商品管理</a></li>
+ 			  <li><a href="#" title="send_manage_goodsManage.action">类别管理</a></li>
+ 			  <li><a href="#" title="send_category_query.action">商品管理</a></li>
  		    </ul>
 		</div>
 		<div title="系统设置">
-
+		
 		</div>
 	  </div>
 	</div>   
@@ -71,7 +55,24 @@
 			</div> 
 		</div>
 	</div>
-
+<script type="text/javascript">
+		$(function() {
+			$("a[title]").click(function() {
+				var text = $(this).text();
+				var href = $(this).attr("title");
+				if ($("#tt").tabs("exists", text)) { //判断面板是否存在
+					//有着显示到这个面板，没有则创建一个
+					$("#tt").tabs("select", text);
+				} else {
+					$("#tt").tabs("add", {
+						title:text,	
+						content:'<iframe src="send_manage_goodsManage.action" frameborder="0"  width="100%" height="100%"></iframe>',
+				  		closable:true
+				   });		
+				}
+			});
+		});
+	</script>
 	
 </body>
 </html>
