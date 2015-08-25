@@ -16,7 +16,7 @@ import com.dzwz.shop.model.Category;
 @ContextConfiguration(locations="classpath:applicationContext-*.xml")
 public class CategoryDaoImplTest {
 
-	@Resource
+	@Resource(name="categoryDao")
 	private CategoryDao categoryDao;
 	
 	@Test

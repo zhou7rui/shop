@@ -19,16 +19,22 @@
   	
 			$('#dg').datagrid({
 					url : 'datagrid_data.json',
+					fitColumns:true,			//自动适应宽度
+					nowrap:true,
+					striped:true, 				//显示斑马线	
+					pagination:true,
+					pageList:[10,20,30],
+					frozenColumns:[[
+						{field:'xyz',checkbox:true},
+						{field : 'productid',title:'Code',width : 100}
+					]],
 					columns : [ [ {
-						field : 'code',
-						title : 'Code',
-						width : 100
-					}, {
-						field : 'name',
+	
+						field : 'productname',
 						title : 'Name',
 						width : 100
 					}, {
-						field : 'price',
+						field : 'listprice',
 						title : 'Price',
 						width : 100,
 						align : 'right'
