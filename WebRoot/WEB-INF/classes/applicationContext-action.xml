@@ -8,11 +8,17 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	 
-	 <bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype">
+	 <bean id="baseAction" class="com.dzwz.shop.action.BaseAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
+		<property name="categoryService" ref="categoryService"></property>
 	</bean>  
 	
-	<bean id="sendAction" class="com.dzwz.shop.action.SendAction" />
-
+	<bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype" parent="baseAction">
+	</bean>
+	<bean id="categoryAction" class="com.dzwz.shop.action.CategoryAction" scope="prototype" parent="baseAction">
+	</bean>
 	
+	
+	
+	<bean id="sendAction" class="com.dzwz.shop.action.SendAction" />
 	</beans>

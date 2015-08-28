@@ -11,11 +11,6 @@ public class LoginAction extends BaseAction<User>{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private UserServiceImpl   userService;
-	
-	public void setUserService(UserServiceImpl userService) {
-		this.userService = userService;
-	}
 	
 	public String  Login() {
 		if(userService.login(model).equals("success")){

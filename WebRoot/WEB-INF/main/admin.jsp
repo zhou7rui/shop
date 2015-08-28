@@ -22,6 +22,7 @@
 			padding:5px;
 			background:#008792;
 			text-decoration: none;
+			color: #fff;
 		}
 		#menu ul li a:hover{
 			background:#00a6ac;
@@ -66,7 +67,7 @@
 				} else {
 					$("#tt").tabs("add", {
 						title:text,	
-						content:'<iframe src="send_manage_goodsManage.action" frameborder="0"  width="100%" height="100%"></iframe>',
+						content:'<iframe src="send_manage_categoryManage.action" frameborder="0"  width="100%" height="100%"></iframe>',
 				  		closable:true
 				   });		
 				}

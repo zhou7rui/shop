@@ -19,8 +19,12 @@ create table category
 );
 
 
-select * from td_user;
+select * from category;
 
 insert into td_user(USERNAME,PASSWORD,Phuone,MONEY,ROLE,IOCN,CREATETIME) values();
+
+insert into category(type,hot,u_id) values("男装",0,1);
+
+
 
 

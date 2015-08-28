@@ -59,4 +59,12 @@ public class Category implements java.io.Serializable {
 		this.user = user;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", type=" + type + ", hot=" + hot
+				+ ", user=" + user + "]";
+	}
+
+	
+	
 }

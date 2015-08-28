@@ -2,12 +2,12 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="false" />
+    <constant name="struts.devMode" value="true" />
 	
 	
 	
 	
-    <package name="default" namespace="/" extends="struts-default">
+    <package name="default" namespace="/" extends="json-default">
     <interceptors>
     	<interceptor name="login" class="com.dzwz.shop.Interceptor.LoginInterceptor" />
     	<interceptor-stack name="mystack">
@@ -29,10 +29,28 @@
     		<result>/success.jsp</result>
     		<result name="login">/login.jsp</result>
     	</action>
-
+		
+		<!-- 转发请求 -->
     	<action name="send_*_*" class="sendAction">
     		<result name="send">/WEB-INF/{1}/{2}.jsp</result>
     	</action>
     	
+    	<action name="manage_*" class="categoryAction" method="{1}">
+    	    <!-- 以JSON格式返回并过滤敏感字段 -->
+    		<result name="categoryOk" type="json">
+    			<param name="root">resultMap</param>
+    			<param name="excludeProperties">
+					rows\[\d+]\.user\.pwd,
+					rows\[\d+]\.user\.phone,
+					rows\[\d+]\.user\.money
+				</param>
+    		</result>
+    		
+    		<!-- 以流的形式返回 -->
+    		<result name="stream" type="stream">
+    		    <param name="inputStream">inputStream</param>
+    		</result>
+    		
+    	</action>
     </package>
 </struts>    
