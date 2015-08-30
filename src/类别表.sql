@@ -23,8 +23,8 @@ select * from category;
 
 insert into td_user(USERNAME,PASSWORD,Phuone,MONEY,ROLE,IOCN,CREATETIME) values();
 
-insert into category(type,hot,u_id) values("男装",0,1);
-
+insert into category(type,hot,u_id) values('男装',0,1);
+DELETE FROM Category  WHERE id in (4)
 
 
 

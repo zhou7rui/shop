@@ -2,6 +2,8 @@ package com.dzwz.shop.dao;
 
 import java.util.List;
 
+import com.dzwz.shop.model.User;
+
 import com.dzwz.shop.model.Category;
 
 @SuppressWarnings("unchecked")
@@ -45,7 +47,10 @@ public class CategoryDaoImpl extends BaseDaoIpml<Category> implements CategoryDa
      */
 	@Override
 	public void deleteByids(String ids) {
-		String hql = "DELETE FROM Category C WHERE C.id in ("+ids+")";
-		getSession().createQuery(hql).executeUpdate();
+		
+	
+		String hql = "DELETE FROM Category  WHERE id in ("+ids+")";
+	    getSession().createQuery(hql).executeUpdate();
+
 	}
 }

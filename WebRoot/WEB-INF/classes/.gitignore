@@ -57,8 +57,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-/.settings
-/.springBeans
 /WebRoot
 /.classpath
 /.gitattributes
@@ -66,4 +64,7 @@ $RECYCLE.BIN/
 /.myhibernatedata
 /.myumldata
 /.project
+/.settings
+/.springBeans
 /com
+/商品信息表.sql

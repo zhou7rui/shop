@@ -15,7 +15,6 @@ $(function(){
 			iconCls: 'icon-add',
 			text:'添加',
 			handler: function(){
-				alert('添加按钮');
 				}
 		},'-',{
 			iconCls: 'icon-remove',
@@ -46,9 +45,15 @@ $(function(){
 						    //3.发送ajax请求
 							$.post("manage_deleteByids.action",{ids:ids},function(result){
 								if(result=="true"){
-									alert("删除成功");
+									$('#dg').datagrid("reload");
 								}else{
-									alert("删除失败");
+									//提示信息
+									$.messager.show({
+										title:'删除失败',
+										msg:'请用户注意操作',
+										timeout:2000,      //弹出时间
+										showType:'slide',  //弹出方式
+									});
 								}
 							});
 						}
@@ -113,8 +118,6 @@ $(function(){
 			$('#dg').datagrid('load',{
 				type: value
 			});
-
-
 		}, 
 		prompt:'女装'     //缺省值
 		}); 

@@ -39,7 +39,7 @@
 			value="classpath:hibernate.cfg.xml">
 		</property>
 		
-		<property name="mappingLocations" value="classpath:com/dzwz/shop/model/User.hbm.xml"></property>
+		<property name="mappingLocations" value="classpath:com/dzwz/shop/model/*.hbm.xml"></property>
 	</bean>
 	
 	<!-- 配置声明式事务 -->
@@ -51,9 +51,9 @@
 	<tx:advice id="advice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="save*" propagation="REQUIRED"/>
-			<tx:method name="delete*" propagation="REQUIRED"/>
+			<tx:method name="delete*" propagation="REQUIRED"/> 
 			<tx:method name="update*" propagation="REQUIRED"/>
-			<tx:method name="*" propagation="SUPPORTS" />
+			<tx:method name="*"  propagation="SUPPORTS"/>
 		</tx:attributes>
 	</tx:advice>
 	

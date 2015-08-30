@@ -49,7 +49,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements
 	@Override
 	public void deleteByids(String ids) {
 		categoryDao.deleteByids(ids);
-		
 	}
 
 }
