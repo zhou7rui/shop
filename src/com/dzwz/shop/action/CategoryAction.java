@@ -42,11 +42,28 @@ public class CategoryAction extends BaseAction<Category> {
 		resultMap.put("rows", CategoryList);
 		return "categoryOk";
 	}
-	
+	/**
+	 * 类别删除
+	 * @author zrui
+	 * @time 2015年8月27日17:14:05
+	 * @version v.0.1
+	 */
 	public String deleteByids(){
 		categoryService.deleteByids(ids);
 		inputStream = new ByteArrayInputStream("true".getBytes());
 		return "stream";
+	}
+	
+	/**
+	 * 类别添加
+	 * @author zrui
+	 * @time 2015年8月27日17:14:05
+	 * @version v.0.1
+	 */
+	public void save(){
+		System.out.println(model);
+		categoryService.save(model);
+		
 	}
 	
 	

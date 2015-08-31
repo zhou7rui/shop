@@ -10,10 +10,11 @@ public class BaseServiceImpl<T> implements BaseService<T>{
    private Class<T> clazz;
    
    public BaseServiceImpl(){
+	   
 	   ParameterizedType  type =   (ParameterizedType) this.getClass().getGenericSuperclass();
 	   clazz = clazz = (Class<T>) type.getActualTypeArguments()[0];
    }
-	
+ 
 	
    public BaseDao<T> baseDao;
    

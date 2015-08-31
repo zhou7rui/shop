@@ -15,6 +15,12 @@ $(function(){
 			iconCls: 'icon-add',
 			text:'添加',
 			handler: function(){
+				//parent 父级
+				parent.$('#win').window({    
+				    title:'添加类别',
+				    //引入插入页面
+					content:'<iframe src="send_manage_saveManage.action" frameborder="0"  width="100%" height="100%"></iframe>'
+				}); 
 				}
 		},'-',{
 			iconCls: 'icon-remove',

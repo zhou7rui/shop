@@ -10,6 +10,6 @@
 	<script type="text/javascript" src="${shop}/js/categoryManage.js"></script>
   </head>
   <body>
-   <table id="dg"></table>   
+   <table id="dg"></table>      
   </body>
 </html>

@@ -43,6 +43,9 @@
  			  <li><a href="#" title="send_manage_goodsManage.action">类别管理</a></li>
  			  <li><a href="#" title="send_category_query.action">商品管理</a></li>
  		    </ul>
+ 		    <!-- 添加 类别 start-->
+			<div id="win"data-options="iconCls:'icon-save',resizable:true,modal:true"></div>
+			<!-- 添加类别 end -->
 		</div>
 		<div title="系统设置">
 		
