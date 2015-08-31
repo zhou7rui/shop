@@ -2,6 +2,7 @@ package com.dzwz.shop.service;
 
 import java.util.List;
 
+import com.dzwz.shop.dao.BaseDao;
 import com.dzwz.shop.dao.CategoryDao;
 import com.dzwz.shop.model.Category;
 
@@ -12,7 +13,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements
 	public void setCategoryDao(CategoryDao categoryDao) {
 		this.categoryDao = categoryDao;
 	}
-
+	
+	public void setBaseDao(BaseDao<Category> baseDao) {
+		this.baseDao = baseDao;
+	   }
+	
 	/**
 	 * 
 	 * 类别管理查询出类别表以及关联的user

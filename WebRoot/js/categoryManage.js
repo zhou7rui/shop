@@ -1,6 +1,7 @@
 $(function(){
 	$('#dg').datagrid({
 		url : 'manage_CategoryManage.action',
+		title:'类别管理',
 		fitColumns:true,			//自动适应宽度
 		nowrap:true,
 		striped:true, 				//显示斑马线	

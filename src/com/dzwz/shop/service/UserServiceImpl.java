@@ -4,7 +4,9 @@ package com.dzwz.shop.service;
 
 
 
+import com.dzwz.shop.dao.BaseDao;
 import com.dzwz.shop.dao.UserDao;
+import com.dzwz.shop.model.Category;
 import com.dzwz.shop.model.User;
 
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService{
@@ -15,6 +17,10 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		this.userDao = userDao;
 	}
 	
+	
+	public void setBaseDao(BaseDao<User> baseDao) {
+		this.baseDao = baseDao;
+	   }
 	public String login(User user){
 		
 		User use1 = userDao.QueryUser(user);

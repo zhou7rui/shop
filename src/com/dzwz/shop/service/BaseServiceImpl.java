@@ -7,18 +7,12 @@ import com.dzwz.shop.dao.BaseDao;
 
 public class BaseServiceImpl<T> implements BaseService<T>{
 
-   private Class<T> clazz;
-   
-   public BaseServiceImpl(){
-	   
-	   ParameterizedType  type =   (ParameterizedType) this.getClass().getGenericSuperclass();
-	   clazz = clazz = (Class<T>) type.getActualTypeArguments()[0];
-   }
+
  
 	
    public BaseDao<T> baseDao;
    
-   public void setBaseDao(BaseDao baseDao) {
+   public void setBaseDao(BaseDao<T> baseDao) {
 	this.baseDao = baseDao;
    }
 	

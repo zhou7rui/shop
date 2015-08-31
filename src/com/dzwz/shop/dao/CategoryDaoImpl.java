@@ -2,13 +2,15 @@ package com.dzwz.shop.dao;
 
 import java.util.List;
 
-import com.dzwz.shop.model.User;
+import org.hibernate.SessionFactory;
 
+import com.dzwz.shop.model.User;
 import com.dzwz.shop.model.Category;
 
 @SuppressWarnings("unchecked")
 public class CategoryDaoImpl extends BaseDaoIpml<Category> implements CategoryDao {
 
+	
 	
 	/**
      * 根据分页查询数据

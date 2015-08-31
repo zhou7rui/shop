@@ -7,7 +7,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.dzwz.shop.model.User;
 
-public class UserDaoImpl<Uset> extends BaseDaoIpml<User> implements UserDao {
+public  class UserDaoImpl<Uset> extends BaseDaoIpml<User> implements UserDao {
 
 	@Override
 	public User QueryUser(User user) {

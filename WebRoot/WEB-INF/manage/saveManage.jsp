@@ -28,6 +28,9 @@
 						success: function(){
 						//关闭Window
 						parent.$("#win").window("close");
+						//刷新页面
+						var dg = parent.$("iframe[title='类别管理']").contents().find("#dg");
+						dg.datagrid("reload");
 						}
 					});
     		    }

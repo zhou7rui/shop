@@ -8,13 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 @SuppressWarnings("unchecked")
-public class BaseDaoIpml<T> implements BaseDao<T> {
+public  class BaseDaoIpml<T> implements BaseDao<T> {
 	
 	private Class<T> clazz;
 	
 	public BaseDaoIpml() {
 		ParameterizedType type =(ParameterizedType) this.getClass().getGenericSuperclass();
-		 clazz = clazz = (Class<T>) type.getActualTypeArguments()[0];
+		 clazz = (Class<T>) type.getActualTypeArguments()[0];
 	}	
 	public SessionFactory sessionFactory;
 	
