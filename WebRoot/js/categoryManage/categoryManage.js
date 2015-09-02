@@ -1,14 +1,13 @@
 $(function(){
 	$('#dg').datagrid({
-		url : 'manage_CategoryManage.action',
-		title:'类别管理',
+		url : 'category_CategoryManage.action',
 		fitColumns:true,			//自动适应宽度
 		nowrap:true,
 		striped:true, 				//显示斑马线	
 		pagination:true,			//打开分页
 		pageSize:5,					//初始化页面大小
 		idField:'id',					//指定id为标识字段 在更新.删除时使用,如果 在翻页的时候记下来
-		queryParams:{
+		queryParams:{      //传递初始化参数
 			type:''
 		},
 		pageList:[5,10,15],
@@ -20,8 +19,35 @@ $(function(){
 				parent.$('#win').window({    
 				    title:'添加类别',
 				    //引入插入页面
-					content:'<iframe src="send_manage_saveManage.action" frameborder="0"  width="100%" height="100%"></iframe>'
+					content:'<iframe src="send_category_save.action" frameborder="0"  width="100%" height="100%"></iframe>'
 				}); 
+				}
+		},'-',{
+			iconCls: 'icon-edit',
+			text:'编辑',
+			handler: function(){
+			
+				//判断是否选中行记录
+				var rows = $('#dg').datagrid("getSelections");
+				//rows返回所有被选中的行，当没有记录被选中的时候将返回一个空数组
+				if(rows.length!=1){
+					//提示信息
+					$.messager.show({
+						title:'提示信息',
+						msg:'请选择一条数据',
+						timeout:2000,      //弹出时间
+						showType:'slide',  //弹出方式
+					});
+				}else{
+					//parent 父级
+					parent.$('#win').window({    
+					    title:'编辑类别',
+					    //引入插入页面
+						content:'<iframe src="send_category_update.action" frameborder="0"  width="100%" height="100%"></iframe>'
+					}); 
+					
+				}
+			
 				}
 		},'-',{
 			iconCls: 'icon-remove',
@@ -50,7 +76,8 @@ $(function(){
 							//2.拼接id的值
 							ids = ids.substring(0, ids.lastIndexOf(","));
 						    //3.发送ajax请求
-							$.post("manage_deleteByids.action",{ids:ids},function(result){
+							$.post("category_deleteByids.action",{ids:ids},function(result){
+								$('#dg').datagrid("unselectAll");
 								if(result=="true"){
 									$('#dg').datagrid("reload");
 								}else{
@@ -68,12 +95,6 @@ $(function(){
 				}
 				}
 		
-		},'-',{
-			iconCls: 'icon-edit',
-			text:'编辑',
-			handler: function(){
-				alert('帮助按钮');
-				}
 		},'-',{
 			iconCls: 'icon-help',
 			handler: function(){

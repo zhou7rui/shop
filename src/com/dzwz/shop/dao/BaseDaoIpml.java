@@ -43,8 +43,7 @@ public  class BaseDaoIpml<T> implements BaseDao<T> {
 		getSession().createQuery(hql)
 			.setInteger("id", id)
 			.executeUpdate();
-			
-		
+
 	}
 
 	@Override
@@ -55,7 +54,7 @@ public  class BaseDaoIpml<T> implements BaseDao<T> {
 
 	@Override
 	public List<T> query() {
-		String hql = "FROM"+clazz.getSimpleName();
+		String hql = "FROM  "+clazz.getSimpleName();
 		return getSession().createQuery(hql).list();
 	}
 

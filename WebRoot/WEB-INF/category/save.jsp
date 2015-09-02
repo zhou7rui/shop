@@ -9,37 +9,7 @@
     		margin: 5px;
     	}
     </style>
-    <script type="text/javascript">
-    	$(function(){
-    		$("input[name=type]").validatebox({
-    			required:true,
-    			missingMessage:'请输入类别名称'
-    		});
-    		//关闭验证
-    		$("#ff").form("disableValidation");
-    		//提交
-    		$("#submit").click(function(){
-    		$("#ff").form("enableValidation");
-    			//判断验证是否成功
-    			if($("#ff").form("validate")){
-		    		//调用submit方法
-		    		$('#ff').form('submit', {
-						url: "manage_save.action",
-						success: function(){
-						//关闭Window
-						parent.$("#win").window("close");
-						//刷新页面
-						var dg = parent.$("iframe[title='类别管理']").contents().find("#dg");
-						dg.datagrid("reload");
-						}
-					});
-    		    }
-    		});
-    		
-    	});
-    </script>
-    
-    
+    <script type="text/javascript" src="${shop}/js/categoryManage/save.js"></script>
   </head>
   <body>
   <form id="ff" method="post">   

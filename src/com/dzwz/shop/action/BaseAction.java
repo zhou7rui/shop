@@ -3,13 +3,13 @@ package com.dzwz.shop.action;
 
 import java.io.InputStream;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.dzwz.shop.dao.CategoryDao;
 import com.dzwz.shop.service.CategoryService;
 import com.dzwz.shop.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -45,6 +45,14 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	
 	public InputStream inputStream;
 	
+	
+	//json list
+	
+	public List<T>  jsonList = null;
+	public List<T> getJsonList() {
+		return jsonList;
+	}
+
 	//分页属性
 	public int page;
 	public int rows;

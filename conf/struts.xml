@@ -35,7 +35,8 @@
     		<result name="send">/WEB-INF/{1}/{2}.jsp</result>
     	</action>
     	
-    	<action name="manage_*" class="categoryAction" method="{1}">
+    	<!-- categoryAction -->
+    	<action name="category_*" class="categoryAction" method="{1}">
     	    <!-- 以JSON格式返回并过滤敏感字段 -->
     		<result name="categoryOk" type="json">
     			<param name="root">resultMap</param>
@@ -45,12 +46,21 @@
 					rows\[\d+]\.user\.money
 				</param>
     		</result>
-    		
     		<!-- 以流的形式返回 -->
     		<result name="stream" type="stream">
     		    <param name="inputStream">inputStream</param>
     		</result>
-    		
     	</action>
+    	
+    	<action name="user_*" class="userAction" method="{1}">
+    		<result name="jsonlist" type="json">
+    			<param name="root">jsonList</param>
+    			<param name="excludeProperties">
+					\[\d+]\.pwd,\[\d+]\.phone,\[\d+]\.money
+				</param>
+    		</result>
+    	</action>
+    	
+    	
     </package>
 </struts>    

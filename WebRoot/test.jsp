@@ -31,8 +31,12 @@
   
   <body>
     <a href="${shop}/send_main_admin.action">后台管理</a>
-    <hr>
-    <a href="${shop}/send_manage_saveManage.action">save页面</a>
+    <hr />
+    <br>
+    <a href="${shop}/send_category_save.action">save页面</a>
+    <hr />
+    <br>
+    <a href="${shop}/send_category_update.action">update页面</a>
  	<div id="menu">
  		<ul>
  			<li><a href="#">类别管理</a></li>

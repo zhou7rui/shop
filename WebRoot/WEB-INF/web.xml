@@ -9,6 +9,19 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>AllFilter</filter-name>
+    <filter-class>com.dzwz.shop.filter.AllFilter</filter-class>
+    <init-param>
+      <param-name>charset</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
   
   <!-- spring 监听器 -->
   <listener>

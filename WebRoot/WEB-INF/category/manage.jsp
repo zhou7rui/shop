@@ -7,9 +7,9 @@
 	<style type="text/css">
 		*{margin:0;padding: 0}
 	</style>
-	<script type="text/javascript" src="${shop}/js/categoryManage.js"></script>
+	<script type="text/javascript" src="${shop}/js/categoryManage/categoryManage.js"></script>
   </head>
   <body>
-   <table id="dg"></table>      
+  	 <table id="dg"></table>     
   </body>
 </html>

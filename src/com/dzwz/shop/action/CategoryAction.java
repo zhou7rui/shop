@@ -1,8 +1,10 @@
 package com.dzwz.shop.action;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 
 
 
@@ -66,5 +68,18 @@ public class CategoryAction extends BaseAction<Category> {
 		
 	}
 	
+	/**
+	 * 类别更新
+	 * @author zrui
+	 * @time 2015年8月27日17:14:05
+	 * @version v.0.1
+	 */
+	public void update(){
+		System.out.println(model);
+		categoryService.update(model);
+		
+	}
 	
+
+
 }
