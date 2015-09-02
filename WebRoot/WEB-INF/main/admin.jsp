@@ -40,7 +40,7 @@
 	  <div id="aa" class="easyui-accordion" data-options="fit:true">
 	    <div id="menu" title="后台管理"> 
  			<ul>
- 			  <li><a href="#" title="send_manage_goodsManage.action">类别管理</a></li>
+ 			  <li><a href="#" title="send_category_manage.action">类别管理</a></li>
  			  <li><a href="#" title="send_category_query.action">商品管理</a></li>
  		    </ul>
 		</div>
@@ -57,11 +57,11 @@
 			</div> 
 			
 		</div>
-		<!-- 添加 类别 start-->
-		<div id="win"data-options="iconCls:'icon-save',resizable:true,modal:true"></div>
-		<!-- 添加类别 end -->
 	</div>
-<script type="text/javascript">
+	
+   <div id="win" data-options="closable:true,modal:true"></div>
+	
+   <script type="text/javascript">
 		$(function() {
 			$("a[title]").click(function() {
 				var text = $(this).text();
@@ -72,7 +72,7 @@
 				} else {
 					$("#tt").tabs("add", {
 						title:text,	
-						content:'<iframe src="send_manage_categoryManage.action" frameborder="0"  width="100%" height="100%"></iframe>',
+						content:'<iframe title='+ text +' src='+ href +' frameborder="0"  width="100%" height="100%"></iframe>',
 				  		closable:true
 				   });		
 				}
