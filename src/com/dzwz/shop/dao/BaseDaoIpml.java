@@ -54,7 +54,7 @@ public  class BaseDaoIpml<T> implements BaseDao<T> {
 
 	@Override
 	public List<T> query() {
-		String hql = "FROM  "+clazz.getSimpleName();
+		String hql = "FROM  "+clazz.getSimpleName()+" c LEFT OUTER JOIN FETCH c.user";
 		return getSession().createQuery(hql).list();
 	}
 

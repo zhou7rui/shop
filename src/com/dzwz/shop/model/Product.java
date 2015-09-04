@@ -10,6 +10,10 @@ public class Product implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
 	private Double price;
@@ -32,6 +36,7 @@ public class Product implements java.io.Serializable {
 		this.date = date;
 	}
 
+	
 	/** full constructor */
 	public Product(String name, Double price, String pic, String remark,
 			String xremark, Timestamp date, Boolean commend, Boolean open,

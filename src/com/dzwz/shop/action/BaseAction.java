@@ -11,6 +11,7 @@ import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.dzwz.shop.service.CategoryService;
+import com.dzwz.shop.service.ProductService;
 import com.dzwz.shop.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -43,8 +44,22 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	
 	public CategoryService  categoryService;
 	
+	public ProductService productService;
+	
 	public InputStream inputStream;
 	
+	
+	public String ids;
+
+
+	public String getIds() {
+		return ids;
+	}
+
+	public void setIds(String ids) {
+		this.ids = ids;
+	}
+
 	
 	//json list
 	
@@ -94,6 +109,10 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		this.categoryService = categoryService;
 	}
 	
+	
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
 	//获取application
 	@Override
 	public void setApplication(Map<String, Object> application) {

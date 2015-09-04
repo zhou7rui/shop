@@ -12,7 +12,7 @@ $(function(){
     			if($("#ff").form("validate")){
 		    		//调用submit方法
 		    		$('#ff').form('submit', {
-						url: "manage_save.action",
+						url: "category_save.action",
 						success: function(){
 						//关闭Window
 						parent.$("#win").window("close");

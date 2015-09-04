@@ -41,7 +41,7 @@
 	    <div id="menu" title="后台管理"> 
  			<ul>
  			  <li><a href="#" title="send_category_manage.action">类别管理</a></li>
- 			  <li><a href="#" title="send_category_query.action">商品管理</a></li>
+ 			  <li><a href="#" title="send_product_manage.action">商品管理</a></li>
  		    </ul>
 		</div>
 		<div title="系统设置">
@@ -59,7 +59,7 @@
 		</div>
 	</div>
 	
-   <div id="win" data-options="closable:true,modal:true"></div>
+   <div id="win" data-options="closable:true,modal:true" style="width: 500px;height: 500px"></div>
 	
    <script type="text/javascript">
 		$(function() {

@@ -34,7 +34,11 @@
     	<action name="send_*_*" class="sendAction">
     		<result name="send">/WEB-INF/{1}/{2}.jsp</result>
     	</action>
+    	</package>
     	
+    	
+    	<!-- 品类 -->
+    	<package name="category" namespace="/" extends="json-default">
     	<!-- categoryAction -->
     	<action name="category_*" class="categoryAction" method="{1}">
     	    <!-- 以JSON格式返回并过滤敏感字段 -->
@@ -50,6 +54,13 @@
     		<result name="stream" type="stream">
     		    <param name="inputStream">inputStream</param>
     		</result>
+    		<!-- list json -->
+    		<result name="jsonlist" type="json">
+    			<param name="root">jsonList</param>
+    			<param name="excludeProperties">
+					\[\d+]\.user
+				</param>
+    		</result>
     	</action>
     	
     	<action name="user_*" class="userAction" method="{1}">
@@ -60,7 +71,21 @@
 				</param>
     		</result>
     	</action>
-    	
-    	
     </package>
+    
+    
+    <!-- 商品 -->
+    <package name="prouct" namespace="/" extends="json-default">
+    	<action name="product_*" class="productAction" method="{1}">
+    	  
+    		<result name="jsonSuccess" type="json">
+    			<param name="root">resultMap</param>
+    			<param name="excludeProperties">
+					rows\[\d+]\.cid\.user
+				</param>
+    		</result>
+    	</action>
+    </package>
+    
+    
 </struts>    

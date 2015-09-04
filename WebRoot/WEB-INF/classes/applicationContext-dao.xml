@@ -17,5 +17,8 @@
 	
 	 <bean id="categoryDao" class="com.dzwz.shop.dao.CategoryDaoImpl" parent="baseDao">
 	</bean>  
+	
+	<bean id="productDao" class="com.dzwz.shop.dao.ProductDaoImpl" parent="baseDao">
+	</bean>
 
 	</beans>

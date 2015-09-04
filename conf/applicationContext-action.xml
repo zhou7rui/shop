@@ -11,6 +11,7 @@
 	 <bean id="baseAction" class="com.dzwz.shop.action.BaseAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 		<property name="categoryService" ref="categoryService"></property>
+		<property name="productService" ref="porductService"></property>
 	</bean>  
 	
 	<bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype" parent="baseAction">
@@ -20,6 +21,7 @@
 	<bean id="categoryAction" class="com.dzwz.shop.action.CategoryAction" scope="prototype" parent="baseAction">
 	</bean>
 	
+	<bean id="productAction" class="com.dzwz.shop.action.ProductAction" scope="prototype" parent="baseAction"></bean>
 	
 	
 	<bean id="sendAction" class="com.dzwz.shop.action.SendAction" />

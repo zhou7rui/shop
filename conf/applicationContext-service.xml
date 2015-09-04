@@ -9,15 +9,22 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	 
 
-	 
+	 <!-- 用户service -->
 	 <bean id="userService" class="com.dzwz.shop.service.UserServiceImpl" >
 	 	<property name="userDao" ref="userDao"></property>
 	 	<property name="baseDao" ref="userDao"></property>
 	 </bean>
-  
+  	
+  	<!-- 品类 -->
 	 <bean id="categoryService" class="com.dzwz.shop.service.CategoryServiceImpl">
 	 	<property name="categoryDao" ref="categoryDao"></property>
 	 	<property name="baseDao" ref="categoryDao"></property>
+	 </bean>
+	 
+	 <!-- 商品  -->
+	 <bean id="porductService" class="com.dzwz.shop.service.ProductServiceImpl">
+		<property name="productDao" ref="productDao"></property>
+		<property name="baseDao" ref="productDao"></property>
 	 </bean>
   
 

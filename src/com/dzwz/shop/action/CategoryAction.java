@@ -17,17 +17,7 @@ public class CategoryAction extends BaseAction<Category> {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String ids;
-
-
-	public String getIds() {
-		return ids;
-	}
-
-	public void setIds(String ids) {
-		this.ids = ids;
-	}
-
+	
 	/**
 	 * 类别管理
 	 * 
@@ -40,7 +30,7 @@ public class CategoryAction extends BaseAction<Category> {
 		
 		resultMap = new HashMap<String,Object>();
 		List<Category> CategoryList = categoryService.QueryJoinUser(model.getType(), page, rows);
-		resultMap.put("total", categoryService.totalCategory(""));
+		resultMap.put("total", categoryService.totalCategory(model.getType()));
 		resultMap.put("rows", CategoryList);
 		return "categoryOk";
 	}
@@ -80,6 +70,17 @@ public class CategoryAction extends BaseAction<Category> {
 		
 	}
 	
-
-
+	/**
+	 * 类别查询
+	 * @author zrui
+	 * @time 2015年9月4日23:15:23
+	 * @version v.0.1
+	 * 
+	 */
+	 public String quercategory(){
+		 jsonList = categoryService.query();
+		 return "jsonlist";
+	 }	
+	
+	
 }

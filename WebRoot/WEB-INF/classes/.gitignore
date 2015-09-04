@@ -58,6 +58,13 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /WebRoot
+/.classpath
+/.gitattributes
+/.gitignore
+/.myhibernatedata
+/.myumldata
+/.project
 /.settings
 /.springBeans
 /com
+/snippet
