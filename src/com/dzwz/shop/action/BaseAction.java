@@ -10,6 +10,8 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.dzwz.shop.util.FileImage;
+import com.dzwz.shop.util.FileUpload;
 import com.dzwz.shop.service.CategoryService;
 import com.dzwz.shop.service.ProductService;
 import com.dzwz.shop.service.UserService;
@@ -46,8 +48,11 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	
 	public ProductService productService;
 	
+	public FileUpload fileUplaod;
+	
 	public InputStream inputStream;
 	
+	public FileImage fileImage;
 	
 	public String ids;
 
@@ -81,6 +86,16 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		this.resultMap = resultMap;
 	}
 	
+	
+	 
+	public FileImage getFileImage() {
+		return fileImage;
+	}
+
+	public void setFileImage(FileImage fileImage) {
+		this.fileImage = fileImage;
+	}
+
 	public int getPage() {
 		return page;
 	}
@@ -110,6 +125,10 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	}
 	
 	
+	public void setFileUplaod(FileUpload fileUplaod) {
+		this.fileUplaod = fileUplaod;
+	}
+
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
@@ -148,5 +167,7 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		}
 		return model;
 	}
+	
+	
 
 }

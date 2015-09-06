@@ -26,7 +26,13 @@
   <!-- spring 监听器 -->
   <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+  </listener>
+  
+  <listener>
+  		<listener-class>com.dzwz.shop.listener.InitDataListener</listener-class>
+  	
+  </listener>
+    
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext-*.xml</param-value>

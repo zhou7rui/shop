@@ -32,13 +32,13 @@ $(function(){
     			missingMessage:'请输入输入价格'
     		});
     		
-    		$("input[name=upload]").validatebox({
+    		$("input[name='fileImage.upload]'").validatebox({
     			required:true,
     			missingMessage:'请上传商品图片',
     			validType:'format["jpg,png,gif,jpeg"]'
     		});
     		
-    		$("input[name=upload]").change(function(){
+    		$("input[name='fileImage.upload]'").change(function(){
     			
     			this.validatebox('validate');
     		});
@@ -88,6 +88,9 @@ $(function(){
 						}
 					});
     		    }
+    		});
+    		$("#reset").click(function(){
+    			this.form("reset");
     		});
     		
 	});

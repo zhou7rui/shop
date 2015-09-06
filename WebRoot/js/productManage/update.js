@@ -1,24 +1,30 @@
 $(function(){
 			//获得datagrid中的dg
-			var dg = parent.$("iframe[title='类别管理']").get(0).contentWindow.$("#dg");
-			//用户展示
+			var dg = parent.$("iframe[title='商品管理']").get(0).contentWindow.$("#dg");
+			//类型展示
 			$('#cc').combobox({    
-				url:'user_queryUser.action',  
-				width:50,
+				url:'category_quercategory.action',  
+				width:100,
 				height:20,
-				panelWidth:50,
-				panelHeight:80,
+				panelWidth:100,
+				panelHeight:120,
 				valueField:'id',    
-				textField:'userName',
-				editable:false
-			}); 
+				textField:'type',
+				editable:false,
+				required:true,
+    			missingMessage:'请选择类别'
+			});
+    		
+			
 			//表单的回显
 			var rows = dg.datagrid("getSelections");
 			$('#ff').form('load',{
 				id:rows[0].id,
-				type:rows[0].type,
-				hot:rows[0].hot,
-				'user.id':rows[0].user.id
+				name:rows[0].name,
+				price:rows[0].price,
+				remark:rows[0].remark,
+				xremark:rows[0].xremark,
+				'cid.id':rows[0].cid.id
 				
 			});
 

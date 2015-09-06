@@ -43,7 +43,7 @@ $(function(){
 					parent.$('#win').window({    
 					    title:'编辑类别',
 					    //引入插入页面
-						content:'<iframe src="send_category_update.action" frameborder="0"  width="100%" height="100%"></iframe>'
+						content:'<iframe src="send_product_update.action" frameborder="0"  width="100%" height="100%"></iframe>'
 					}); 
 					
 				}

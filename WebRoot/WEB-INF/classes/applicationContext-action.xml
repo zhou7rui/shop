@@ -12,6 +12,7 @@
 		<property name="userService" ref="userService"></property>
 		<property name="categoryService" ref="categoryService"></property>
 		<property name="productService" ref="porductService"></property>
+		<property name="fileUplaod" ref="fileUpload"></property>
 	</bean>  
 	
 	<bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype" parent="baseAction">

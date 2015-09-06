@@ -12,26 +12,45 @@
     <script type="text/javascript" src="${shop}/js/productManage/update.js"></script>
   </head>
   <body>
-  <form id="ff" method="post">   
-    <div>   
-        <label for="name">类别名称:</label>   
-        <input  type="text" name="type" />   
-    </div>   
-    <div>   
-        <label for="hot">是否为热点:</label>   
-       <input type="radio" name="hot" checked="checked" value="true" /> 是
-       <input type="radio"name="hot" value="false" /> 否
-    </div> 
-    <div>   
-        <label for="name">所属用户:</label>   
-        <input  type="text" name="user.id" id="cc" />   
-    </div> 
-    <input type="hidden" name="id" />
+  <form title="编辑商品" id="ff" method="post" enctype="multipart/form-data">
 	<div>
-		<a id="submit" href="#" class="easyui-linkbutton">更新</a> 
+		<label>商品名称:</label> <input type="text" name="name" />
+	</div>
+	<div>
+		<label>商品价格:</label> <input type="text" name="price" />
+	</div>
+	<div>
+		<label>图片上传:</label> <input type="file" name="fileImage.upload" />
+	</div>
+	<div>
+		<label>所属类别：</label> 
+		<input id="cc" name="cid.id" />
+		
+	</div>
+	<div>
+		<label>加入推荐:</label> 推荐:<input type="radio" name="commend"
+			checked="checked" value="true" />  不推荐:<input type="radio"
+			name="commend" value="false" /> 
+	</div>
+	<div>
+		<label>是否有效:</label>
+		上架:<input type="radio" name="open" checked="checked"value="true" />
+		下架:<input type="radio" name="open" value="false" />
+				
+	</div>
+	<div>
+		<label>简单描述:</label>
+		<textarea name="remark" cols="40" rows="4"></textarea>
+	</div>
+	<div>
+		<label>详细描述:</label>
+		<textarea name="xremark" cols="40" rows="8"></textarea>
+	</div>
+	<div>
+		<a id="submit" href="#" class="easyui-linkbutton">编辑</a> 
 		<a id="reset" href="#" class="easyui-linkbutton">重 置</a>
 	</div>
-  </form>  
-    	
-  </body>
+</form>
+
+</body>
 </html>

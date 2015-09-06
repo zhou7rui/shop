@@ -53,4 +53,21 @@ public class ProductDaoImpl extends BaseDaoIpml<Product> implements ProductDao {
 	    getSession().createQuery(hql).executeUpdate();
 
 	}
+	/**
+     * 根据类别热点查询商品信息
+     * @author zrui
+     * @time 2015年8月28日16:40:56
+     * @version v.0.1
+     */
+	@Override
+	public List<Product> querybycid(int cid) {
+		String hql = "FROM Product p WHERE p.commend=true AND p.open=true AND p.cid.id=:cid ORDER BY P.date DESC";
+		
+		return getSession()
+				.createQuery(hql)   //
+				.setInteger("cid", cid)  //
+				.setFetchSize(0)   //
+				.setMaxResults(4)  //
+				.list();  //
+	}
 }

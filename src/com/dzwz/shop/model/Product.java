@@ -1,6 +1,7 @@
 package com.dzwz.shop.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Product entity. @author MyEclipse Persistence Tools
@@ -29,6 +30,7 @@ public class Product implements java.io.Serializable {
 
 	/** default constructor */
 	public Product() {
+		
 	}
 
 	/** minimal constructor */
@@ -37,6 +39,16 @@ public class Product implements java.io.Serializable {
 	}
 
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price
+				+ ", pic=" + pic + ", remark=" + remark + ", xremark="
+				+ xremark + ", date=" + date + ", commend=" + commend
+				+ ", open=" + open + "]";
+	}
+
 	/** full constructor */
 	public Product(String name, Double price, String pic, String remark,
 			String xremark, Timestamp date, Boolean commend, Boolean open,

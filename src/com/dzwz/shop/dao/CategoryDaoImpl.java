@@ -55,4 +55,24 @@ public class CategoryDaoImpl extends BaseDaoIpml<Category> implements CategoryDa
 	    getSession().createQuery(hql).executeUpdate();
 
 	}
+	
+	/**
+     * 根据热点查询类别信息
+     * @author zrui
+     * @time 2015年8月28日16:40:56
+     * @version v.0.1
+     */
+	
+	@Override
+	public List<Category> queryBycut(boolean b) {
+		String hql = "FROM Category c WHERE c.cut=:b";
+		
+		return getSession()
+				.createQuery(hql)  //
+				.setBoolean("b", b)  //
+				.list();  //
+	}
+	
+	
+	
 }

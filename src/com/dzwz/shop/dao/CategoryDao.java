@@ -14,5 +14,8 @@ public interface CategoryDao extends BaseDao<Category> {
 	
 	//根据ids删除
 	public void deleteByids(String ids);
+	
+	//根据热点查询类别信息
+	public List<Category> queryBycut(boolean b);
 
 }

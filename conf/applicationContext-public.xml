@@ -12,7 +12,7 @@
 	<context:component-scan base-package="com.dzwz.shop.." />
 	
 	
-	<bean id="date" class="java.util.Date"/>
+	
 	
 	
 	<!-- 配置jndi数据源 -->
@@ -43,12 +43,12 @@
 	</bean>
 	
 	<!-- 配置声明式事务 -->
-	<bean id="transactionManager"
+	<bean id="tranManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<tx:advice id="advice" transaction-manager="transactionManager">
+	<tx:advice id="advice" transaction-manager="tranManager">
 		<tx:attributes>
 			<tx:method name="save*" propagation="REQUIRED"/>
 			<tx:method name="delete*" propagation="REQUIRED"/> 
@@ -62,5 +62,10 @@
 		<aop:pointcut expression="execution(* com.dzwz.shop.service.*.*(..))" id="pointcut"/>
 		<aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
 	</aop:config>
+	
+	
+	<!-- 文件上传工具类 -->
+	<bean id="fileUpload" class="com.dzwz.shop.util.FileUploadUtil"></bean>
+	
 	
 	</beans>

@@ -13,4 +13,7 @@ public interface ProductDao extends BaseDao<Product>{
 	
 	//根据ids删除
 	public void deleteByids(String ids);
+	
+	//根据类别热点查询商品信息
+	public List<Product>  querybycid(int cid);
 }
