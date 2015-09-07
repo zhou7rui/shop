@@ -38,7 +38,7 @@ public  class BaseDaoIpml<T> implements BaseDao<T> {
 	}
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(int id) {
 		String hql = "FROM "+clazz.getSimpleName()+" WHERE id=:id";
 		getSession().createQuery(hql)
 			.setInteger("id", id)
@@ -47,7 +47,7 @@ public  class BaseDaoIpml<T> implements BaseDao<T> {
 	}
 
 	@Override
-	public T queryByid(Integer id) {	
+	public T queryByid(int id) {	
 		
 		return (T) getSession().get(clazz, id);
 	}

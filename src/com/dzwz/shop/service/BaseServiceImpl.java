@@ -1,6 +1,6 @@
 package com.dzwz.shop.service;
 
-import java.lang.reflect.ParameterizedType;
+
 import java.util.List;
 
 import com.dzwz.shop.dao.BaseDao;
@@ -28,12 +28,12 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 	}
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(int id) {
 		baseDao.delete(id);
 	}
 
 	@Override
-	public T queryByid(Integer id) {
+	public T queryByid(int id) {
 		return (T) baseDao.queryByid(id);
 	}
 

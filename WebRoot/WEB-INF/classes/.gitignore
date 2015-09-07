@@ -67,3 +67,4 @@ $RECYCLE.BIN/
 /.settings
 /.springBeans
 /com
+/ehcache.xml

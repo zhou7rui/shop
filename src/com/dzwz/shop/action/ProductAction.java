@@ -75,4 +75,17 @@ public class ProductAction extends BaseAction<Product>{
 		
 	}
 	
+	/**
+	 * 根据id 查询商品信息
+	 *	@author zrui
+	 * @time 2015年9月7日15:40:33
+	 * @version v.0.1
+	 * 
+	 */
+	public String queryByid(){
+		request.put("product", productService.queryByid(model.getId()));
+		return "detail";
+	}
+	
+	
 }

@@ -88,6 +88,8 @@
     		<result name="stream" type="stream">
     		    <param name="inputStream">inputStream</param>
     		</result>
+    		
+    		<result name="detail">/detail.jsp</result>
     	</action>
     </package>
     

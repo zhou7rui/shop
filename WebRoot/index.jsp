@@ -53,7 +53,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
                    
                         </div>
-                    
             </div>
         </div>
         <!-- 头部结束 -->
@@ -159,7 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="first-carousel" class="first-and-second-carousel jcarousel-skin-tango">
                 	<c:forEach items="${list}" var="product">
                     <li> 
-                    <a  href="#"class="product_image"><img src="images/${product.pic}" /></a>
+                    <a  href="${shop}/product_queryByid?id=${product.id}" class="product_image"><img src="images/${product.pic}" /></a>
                         <div class="product_info">
                             <h3><a href="#">${product.name}</a></h3>
                             <small>${product.remark}</small> 

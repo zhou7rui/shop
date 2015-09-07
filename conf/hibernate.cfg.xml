@@ -20,7 +20,10 @@
 		</property>
 		
 		<!-- 配置二级缓存相关 -->
-
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		
+		<!-- 配置那些类支持二级缓存 -->
+		<class-cache usage="read-only" class="com.dzwz.shop.model.Product"/>
 	</session-factory>
 
 </hibernate-configuration>
