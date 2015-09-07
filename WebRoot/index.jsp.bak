@@ -151,10 +151,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div > <img src="images/lm_banner_1.jpg" /> </div>
             </div>
         </div>
-			
-			<c:forEach items="${applicationScope.proList}" var="list">
+
             <!-- 产品列表 -->
             <div class="products_list products_slider clear">
+            	<c:forEach items="${applicationScope.proList}" var="list">
                 <h2 class="sub_title" >${list[0].cid.type}</h2>
                 <ul id="first-carousel" class="first-and-second-carousel jcarousel-skin-tango">
                 	<c:forEach items="${list}" var="product">
@@ -165,14 +165,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <small>${product.remark}</small> 
                          </div>
                         <div class="price_info"> 
-                           <button><span class="pr_add">添加购物车</span></button>
-                           <button class="price_add" title="" type="button"><span class="pr_price">${product.price}</span></button>
+                           <button><span class="pr_add">添加购物车</span></button><button class="price_add" title="" type="button"><span class="pr_price">￥76.00</span>
+                       		</button>
                         </div>
                     </li>
                     </c:forEach>
                  </ul>
+                </c:forEach>
             </div>
-           </c:forEach>
         <!--产品列表结束  -->
         
         

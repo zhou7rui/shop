@@ -1,5 +1,10 @@
 package com.dzwz.shop.service;
 
-public class IndexService {
+import java.util.List;
 
+
+public interface IndexService<T>{
+	
+	public List<List<T>>  indexInof();
+	
 }

@@ -84,6 +84,10 @@
 					rows\[\d+]\.cid\.user
 				</param>
     		</result>
+    		
+    		<result name="stream" type="stream">
+    		    <param name="inputStream">inputStream</param>
+    		</result>
     	</action>
     </package>
     

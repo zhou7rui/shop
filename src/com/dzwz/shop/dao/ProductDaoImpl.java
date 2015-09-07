@@ -40,7 +40,7 @@ public class ProductDaoImpl extends BaseDaoIpml<Product> implements ProductDao {
 	}
 	
 	/**
-     * 根据id多类别删除
+     * 根据id多商品删除
      * @author zrui
      * @time 2015年8月28日16:40:56
      * @version v.0.1
@@ -61,7 +61,7 @@ public class ProductDaoImpl extends BaseDaoIpml<Product> implements ProductDao {
      */
 	@Override
 	public List<Product> querybycid(int cid) {
-		String hql = "FROM Product p WHERE p.commend=true AND p.open=true AND p.cid.id=:cid ORDER BY P.date DESC";
+		String hql = "FROM Product p JOIN FETCH p.cid WHERE p.commend=true AND p.open=true AND p.cid.id=:cid ORDER BY p.date DESC";
 		
 		return getSession()
 				.createQuery(hql)   //

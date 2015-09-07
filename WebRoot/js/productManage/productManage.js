@@ -76,7 +76,7 @@ $(function(){
 							//2.拼接id的值
 							ids = ids.substring(0, ids.lastIndexOf(","));
 						    //3.发送ajax请求
-							$.post("category_deleteByids.action",{ids:ids},function(result){
+							$.post("product_deleteByids.action",{ids:ids},function(result){
 								$('#dg').datagrid("unselectAll");
 								if(result=="true"){
 									$('#dg').datagrid("reload");

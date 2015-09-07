@@ -26,7 +26,12 @@
 		<property name="productDao" ref="productDao"></property>
 		<property name="baseDao" ref="productDao"></property>
 	 </bean>
-  
+  	 
+  	 <bean id="indexService" class="com.dzwz.shop.service.IndexServiceImpl">
+  	 	<property name="categoryDao" ref="categoryDao"></property>
+  	 	<property name="productDao" ref="productDao"></property>
+  	 </bean>
+  	 
 
 	
 	</beans>

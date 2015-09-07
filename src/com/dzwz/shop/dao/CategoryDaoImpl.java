@@ -65,7 +65,7 @@ public class CategoryDaoImpl extends BaseDaoIpml<Category> implements CategoryDa
 	
 	@Override
 	public List<Category> queryBycut(boolean b) {
-		String hql = "FROM Category c WHERE c.cut=:b";
+		String hql = "FROM Category c WHERE c.hot=:b";
 		
 		return getSession()
 				.createQuery(hql)  //

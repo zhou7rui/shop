@@ -57,4 +57,5 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements
 		productDao.deleteByids(ids);
 	}
 
+	
 }
