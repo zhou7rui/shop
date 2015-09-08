@@ -27,7 +27,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 		//检查用户是否存在
 		if(use1!=null){	
 			//登录校验
-			if(use1.getUserName().equals(user.getUserName())
+			if(use1.getLogin().equals(user.getLogin())
 					&&use1.getPwd().equals((user.getPwd()))){
 				return "success";
 			}else{

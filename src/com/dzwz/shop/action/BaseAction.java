@@ -10,11 +10,12 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.dzwz.shop.util.FileImage;
-import com.dzwz.shop.util.FileUpload;
 import com.dzwz.shop.service.CategoryService;
 import com.dzwz.shop.service.ProductService;
+import com.dzwz.shop.service.SorderService;
 import com.dzwz.shop.service.UserService;
+import com.dzwz.shop.util.FileImage;
+import com.dzwz.shop.util.FileUpload;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -45,6 +46,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	public UserService userService;
 	
 	public CategoryService  categoryService;
+	
+	public SorderService sorderService;
 	
 	public ProductService productService;
 	
@@ -125,6 +128,10 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	}
 	
 	
+	public void setSoderService(SorderService soderService) {
+		this.sorderService = soderService;
+	}
+
 	public void setFileUplaod(FileUpload fileUplaod) {
 		this.fileUplaod = fileUplaod;
 	}

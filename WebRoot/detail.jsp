@@ -3,6 +3,7 @@
 <html>
 <head>
 	<%@include file="/public/head.jspf"%>
+	<title>${product.name}</title>
 	<link rel="stylesheet" href="${shop}/css/public.css" />
 	<link rel="stylesheet" href="${shop}/css/style.css" />
 	<link rel="stylesheet" href="${shop}/css/detail.css" />
@@ -318,7 +319,9 @@
                         </li>
                     </ul>
                     <div class="add_to_buttons">
-                        <button class="add_cart"><a href="#" >加入购物车</a></button>
+                        <button class="add_cart">
+                        	<a href="sorder_addsorder/?product.id=${product.id}" >加入购物车</a>
+                        </button>
                     </div>
                 </div>
                 <!--详情右侧结束--> </div>

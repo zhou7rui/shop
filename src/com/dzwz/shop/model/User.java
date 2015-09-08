@@ -1,85 +1,107 @@
 package com.dzwz.shop.model;
 
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-public class User {
+/**
+ * User entity. @author MyEclipse Persistence Tools
+ */
+
+public class User implements java.io.Serializable {
+
+	// Fields
+
 	private Integer id;
-	private String userName;
+	private String login;
+	private String name;
 	private String pwd;
+	private String sex;
 	private String phone;
-	private float money;
-	private String iocn;
-	private Date createTime;
-	private String role;
-	public Integer getId() {
-		return id;
+	private String email;
+	private Set forders = new HashSet(0);
+
+	// Constructors
+
+	/** default constructor */
+	public User() {
 	}
+
+	/** full constructor */
+	public User(String login, String name, String pwd, String sex,
+			String phone, String email, Set forders) {
+		this.login = login;
+		this.name = name;
+		this.pwd = pwd;
+		this.sex = sex;
+		this.phone = phone;
+		this.email = email;
+		this.forders = forders;
+	}
+
+	// Property accessors
+
+	public Integer getId() {
+		return this.id;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUserName() {
-		return userName;
+
+	public String getLogin() {
+		return this.login;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getPwd() {
-		return pwd;
+		return this.pwd;
 	}
+
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public String getPhone() {
-		return phone;
+
+	public String getSex() {
+		return this.sex;
 	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public float getMoney() {
-		return money;
+
+	public String getEmail() {
+		return this.email;
 	}
-	public void setMoney(float money) {
-		this.money = money;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getIocn() {
-		return iocn;
+
+	public Set getForders() {
+		return this.forders;
 	}
-	public void setIocn(String iocn) {
-		this.iocn = iocn;
+
+	public void setForders(Set forders) {
+		this.forders = forders;
 	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
-	public User(){
-		
-	}
-	
-	public User(Integer id, String userName, String pwd, String phone,
-			float money, String iocn, Date createTime, String role) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.pwd = pwd;
-		this.phone = phone;
-		this.money = money;
-		this.iocn = iocn;
-		this.createTime = createTime;
-		this.role = role;
-	}
-	
-	
-	
-	
-	
-	
+
 }
