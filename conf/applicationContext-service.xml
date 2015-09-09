@@ -27,11 +27,19 @@
 		<property name="baseDao" ref="productDao"></property>
 	 </bean>
   	 
+  	 <!-- 首页 -->
   	 <bean id="indexService" class="com.dzwz.shop.service.IndexServiceImpl">
   	 	<property name="categoryDao" ref="categoryDao"></property>
   	 	<property name="productDao" ref="productDao"></property>
   	 </bean>
   	 
-
+	<!-- 购物车-->
+	
+	<bean id="forderService" class="com.dzwz.shop.service.ForderServiceImpl"></bean>
+	
+	<!-- 购物项 -->
+	<bean id="sorderService" class="com.dzwz.shop.service.SorderServiceImpl"></bean>
+	
+	
 	
 	</beans>

@@ -23,4 +23,21 @@ public class UserAction extends BaseAction<User> {
 		jsonList =userService.query();
 		return "jsonlist";
 	}
+	
+	public String login(){
+		//进行登录的判断
+	    String  isCorrect= userService.login(model);
+	    if(isCorrect.equals("success")){
+	    	session.put("userInfo", model);
+	    	if(session.get("goURL")==null){
+	    		return "index";
+	    	}else{
+	    		return "goURL";
+	    	}
+	    }else{
+	    	request.put("error", "登录失败");
+	    	return "loginFa";
+	    }
+	}
+	
 }

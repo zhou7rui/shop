@@ -3,15 +3,12 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE HTML>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>易购商城</title>
 	<%@ include file="/public/head.jspf" %>
-	<link rel="stylesheet" href="css/public.css" />
-	<link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -164,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <small>${product.remark}</small> 
                          </div>
                         <div class="price_info"> 
-                           <button><span class="pr_add">添加购物车</span></button>
+                           <button><span class="pr_add"><a href="sorder_addsorder?product.id=${product.id}">添加购物车</a></span></button>
                            <button class="price_add" title="" type="button"><span class="pr_price">${product.price}</span></button>
                         </div>
                     </li>

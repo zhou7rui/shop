@@ -13,6 +13,8 @@
 		<property name="categoryService" ref="categoryService"></property>
 		<property name="productService" ref="porductService"></property>
 		<property name="fileUplaod" ref="fileUpload"></property>
+		<property name="sorderService" ref="sorderService"></property>
+		<property name="forderService" ref="forderService"></property>
 	</bean>  
 	
 	<bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype" parent="baseAction">
@@ -26,4 +28,9 @@
 	
 	
 	<bean id="sendAction" class="com.dzwz.shop.action.SendAction" />
+	
+	
+	<bean id="sorderAction" class="com.dzwz.shop.action.SorderAction" scope="prototype" parent="baseAction"></bean>
+	
+	
 	</beans>

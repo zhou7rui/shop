@@ -8,6 +8,7 @@
 	
 	
     <package name="default" namespace="/" extends="json-default">
+    	
     <interceptors>
     	<interceptor name="login" class="com.dzwz.shop.Interceptor.LoginInterceptor" />
     	<interceptor-stack name="mystack">
@@ -20,22 +21,22 @@
     	<action name="success">
     		<result>/success.jsp</result>
     		<result name="login">/login.jsp</result>
-    		
     		<!-- 引用自定义拦截器栈 -->
     		<interceptor-ref name="mystack"></interceptor-ref>
     	</action>
     
     	<action name="login" class="login" method="Login">
     		<result>/success.jsp</result>
-    		<result name="login">/login.jsp</result>
+    		<result name="login">/ulogin.jsp</result>
     	</action>
+		
 		
 		<!-- 转发请求 -->
     	<action name="send_*_*" class="sendAction">
     		<result name="send">/WEB-INF/{1}/{2}.jsp</result>
     	</action>
-    	</package>
     	
+    	</package>
     	
     	<!-- 品类 -->
     	<package name="category" namespace="/" extends="json-default">
@@ -63,7 +64,16 @@
     		</result>
     	</action>
     	
+    </package>
+    
+    <!-- 用户 -->
+     <package name="user" namespace="/" extends="json-default">
+     	<global-results>
+    		<result name="index">/index.jsp</result>
+    		<result name="loginFa">/ulogin.jsp</result>
+    	</global-results>
     	<action name="user_*" class="userAction" method="{1}">
+    		<result name="goURL">${#session.goURL}</result>
     		<result name="jsonlist" type="json">
     			<param name="root">jsonList</param>
     			<param name="excludeProperties">
@@ -71,26 +81,30 @@
 				</param>
     		</result>
     	</action>
-    </package>
-    
-    
+     </package>
+    	
+    	
     <!-- 商品 -->
     <package name="prouct" namespace="/" extends="json-default">
+    	
+    	<action name="sorder_*" class="sorderAction" method="{1}">
+    		<result name="showCar" type="redirect">/showCar.jsp</result>
+    	</action>
+    	
+    	<!-- 后台商品管理模块 -->
     	<action name="product_*" class="productAction" method="{1}">
-    	  
     		<result name="jsonSuccess" type="json">
     			<param name="root">resultMap</param>
     			<param name="excludeProperties">
 					rows\[\d+]\.cid\.user
 				</param>
     		</result>
-    		
     		<result name="stream" type="stream">
     		    <param name="inputStream">inputStream</param>
     		</result>
-    		
     		<result name="detail">/detail.jsp</result>
     	</action>
+    	
     </package>
     
     

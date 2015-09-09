@@ -50,7 +50,7 @@ h2.sub_title { font-size: 18px; color: #312e2b; font-weight: normal; padding-bot
 .products_list .price_info button .pr_price{ background:#544f4b; padding:10px; color:#fff; font-size:14px; font-weight:bold; float:left; clear:both; width:83%; text-transform:uppercase; }
 .products_list .price_info button .pr_add{ padding:10px; color:#f38256; font-size:11px; font-weight:bold; text-transform:uppercase; float:left; clear:both; width:83%; margin-top:0px; }
 .products_list li:hover .pr_add{ background-color: #544f4b; }
-.products_list .price_info a{ color:#a2a2a2; text-decoration:none; font-size:11px; display:inline-block; padding-top:10px; }
+.products_list .price_info a{ color:#f38256; text-decoration:none; font-size:11px;  padding-top:10px; }
 
 
 .product_info { border-bottom-color: #f38256; }

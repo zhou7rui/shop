@@ -12,7 +12,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 	public String intercept(ActionInvocation Invocation) throws Exception {
 		ActionContext act = ActionContext.getContext();
 		Map<String,Object> session = act.getSession();
-		if(session.get("userinif")!=null){
+		if(session.get("userInof")!=null){
 			String result = Invocation.invoke();
 			return	result;
 		}
