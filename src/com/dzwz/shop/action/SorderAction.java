@@ -17,7 +17,10 @@ public class SorderAction extends BaseAction<Sorder> {
 	private static final long serialVersionUID = 1L;
 	
 	
-	
+	/**
+	 *  将商品信息放进购物车中
+	 * @return
+	 */
 	public String addsorder(){
 		//1.根据product.id 获取 商品信息
 		Product product =	productService.queryByid( model.getProduct().getId());

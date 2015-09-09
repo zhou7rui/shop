@@ -20,5 +20,11 @@
 	
 	<bean id="productDao" class="com.dzwz.shop.dao.ProductDaoImpl" parent="baseDao">
 	</bean>
-
+	<bean id="SorderDao" class="com.dzwz.shop.dao.SorderDaoImpl" parent="baseDao">
+	</bean>
+	
+	<bean id="ForderDao" class="com.dzwz.shop.dao.ForderDaoImpl" parent="baseDao">
+	</bean>
+	
+	
 	</beans>

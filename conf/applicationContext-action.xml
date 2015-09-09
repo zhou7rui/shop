@@ -33,4 +33,7 @@
 	<bean id="sorderAction" class="com.dzwz.shop.action.SorderAction" scope="prototype" parent="baseAction"></bean>
 	
 	
+	<bean id="forderAction" class="com.dzwz.shop.action.ForderAction" scope="prototype" parent="baseAction"></bean>
+	
+	
 	</beans>

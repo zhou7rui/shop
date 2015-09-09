@@ -176,8 +176,10 @@
 							</font>
 						</button>
 						<button type="button" title="" class="continue fr">
-							<font><font>继续购物</font>
+							<font>
+								<a href="${shop}/index.jsp">继续购物</a>
 							</font>
+							
 						</button>
 						<div style="clear:both"></div>
 					</div>

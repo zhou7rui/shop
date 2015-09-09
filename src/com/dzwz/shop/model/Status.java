@@ -18,7 +18,8 @@ public class Status implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public Status() {
+	public Status(int id) {
+		this.id = id;
 	}
 
 	/** minimal constructor */

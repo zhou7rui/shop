@@ -28,6 +28,10 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 		}
 		//说明购物车中的商品不存在,添加
 		if(!isHave){
+			
+			//建立购物项与购物车的联系，此时的forder.id为null,在库的时候是forder 先入库	
+			sorder.setForder(forder);
+			
 			forder.getSorders().add(sorder);
 		}
 		return forder;

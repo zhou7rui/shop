@@ -29,7 +29,7 @@
             <column name="price" precision="6" not-null="true" />
         </property>
         <property name="createdate" type="java.util.Date">
-            <column name="createdate" length="10" not-null="true" />
+            <column name="createdate" length="10"/>
         </property>
         <property name="post" type="java.lang.String">
             <column name="post" length="6" />
@@ -37,7 +37,7 @@
         <property name="address" type="java.lang.String">
             <column name="address" length="50" not-null="true" />
         </property>
-        <set name="sorders" inverse="true">
+        <set name="sorders" inverse="true" cascade="all">
             <key>
                 <column name="fid" />
             </key>

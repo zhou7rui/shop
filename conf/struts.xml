@@ -87,9 +87,16 @@
     <!-- 商品 -->
     <package name="prouct" namespace="/" extends="json-default">
     	
+    	<!-- 订单项 -->
     	<action name="sorder_*" class="sorderAction" method="{1}">
     		<result name="showCar" type="redirect">/showCar.jsp</result>
     	</action>
+    	
+    	<!-- 购物车 -->
+    	<action name="forder_*" class="forderAction" method="{1}">
+    		<result name="bank">/user/bank.jsp</result>
+    	</action>
+    	
     	
     	<!-- 后台商品管理模块 -->
     	<action name="product_*" class="productAction" method="{1}">

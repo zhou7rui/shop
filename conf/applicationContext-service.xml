@@ -35,10 +35,14 @@
   	 
 	<!-- 购物车-->
 	
-	<bean id="forderService" class="com.dzwz.shop.service.ForderServiceImpl"></bean>
+	<bean id="forderService" class="com.dzwz.shop.service.ForderServiceImpl">
+		<property name="baseDao" ref="ForderDao"></property>
+	</bean>
 	
 	<!-- 购物项 -->
-	<bean id="sorderService" class="com.dzwz.shop.service.SorderServiceImpl"></bean>
+	<bean id="sorderService" class="com.dzwz.shop.service.SorderServiceImpl">
+		<property name="baseDao" ref="SorderDao"></property>
+	</bean>
 	
 	
 	

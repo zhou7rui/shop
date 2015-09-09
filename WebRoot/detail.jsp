@@ -4,8 +4,6 @@
 <head>
 	<%@include file="/public/head.jspf"%>
 	<title>${product.name}</title>
-	<link rel="stylesheet" href="${shop}/css/public.css" />
-	<link rel="stylesheet" href="${shop}/css/style.css" />
 	<link rel="stylesheet" href="${shop}/css/detail.css" />
 </head>
 <body>

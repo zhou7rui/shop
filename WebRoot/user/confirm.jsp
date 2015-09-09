@@ -222,7 +222,7 @@
 						<tr lang="${sorder.product.id}">
 							<td class="align_center"><a href="#" class="edit">${sorder.product.id}</a>
 							</td>
-							<td width="80px"><img src="${shop}/images/cart1.jpg" width="80"
+							<td width="80px"><img src="${shop}/images/${sorder.product.pic}" width="80"
 								height="80" />
 							</td>
 							<td class="align_left"><a class="pr_name" href="${shop}/product_queryByid?id=${sorder.product.id}">${sorder.name}</a>
@@ -242,7 +242,7 @@
                    
                 </div>
                 <!-- 订购人确认 -->
-                <form action="#" method="post">
+                <form action="forder_save.action" method="post">
 	                <div class="person-check check">
 	                    <h1>订购人信息</h1>
 	                    <div class="person-checkinner">
@@ -267,7 +267,7 @@
 	                <!-- 卖家留言 -->
 	                <div class="person-check check">
 	               		<h1>卖家留言</h1>
-	                	<textarea style="margin: 5px;" name="remark" cols="120" rows="2">输入留言信息</textarea>
+	                	<textarea style="margin: 5px;" name="remak" cols="120" rows="2">输入留言信息</textarea>
 		                <div class="submit">
 		                   	<input type="submit" class="sub-logo fr" style="margin: 0px;padding: 0px; border: 0px;" value="确认无误,购买" />
 		                </div>
