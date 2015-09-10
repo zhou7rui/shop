@@ -15,8 +15,8 @@
 	<bean id="prop" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">
 			<list>
-				<value>classpath*:pay.propertits</value>
-				<value>classpath*:db.propertits</value>
+				<value>classpath:pay.properties</value>
+   			    <value>classpath:db.properties</value>
 			</list>
 		</property>
 	</bean> 

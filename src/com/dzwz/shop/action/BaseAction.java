@@ -10,9 +10,11 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.dzwz.shop.service.PayService;
+
 import com.dzwz.shop.service.CategoryService;
-import com.dzwz.shop.service.ProductService;
 import com.dzwz.shop.service.ForderService;
+import com.dzwz.shop.service.ProductService;
 import com.dzwz.shop.service.SorderService;
 import com.dzwz.shop.service.UserService;
 import com.dzwz.shop.util.FileImage;
@@ -53,6 +55,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	public SorderService sorderService;
 	
 	public ProductService productService;
+	
+	public PayService payService;
 	
 	public FileUpload fileUplaod;
 	
@@ -122,6 +126,10 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 		return inputStream;
 	}
 	
+	public void setPayService(PayService payService) {
+		this.payService = payService;
+	}
+
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}

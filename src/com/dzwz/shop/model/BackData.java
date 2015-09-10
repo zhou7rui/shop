@@ -17,7 +17,15 @@ public class BackData implements Serializable {
 	 private String r7_Uid;
 	 private String r8_MP;
 	 private String r9_BType;
+	 private String hmac;
 	 
+	 
+	public String getHmac() {
+		return hmac;
+	}
+	public void setHmac(String hmac) {
+		this.hmac = hmac;
+	}
 	public String getR0_Cmd() {
 		return r0_Cmd;
 	}

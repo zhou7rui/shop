@@ -44,6 +44,10 @@
 		<property name="baseDao" ref="SorderDao"></property>
 	</bean>
 	
+	<!-- 支付处理 -->
+	<bean id="payService" class="com.dzwz.shop.service.PayServiceImpl">
+	</bean>
+	
 	
 	
 	</beans>

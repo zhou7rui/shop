@@ -94,9 +94,13 @@
     	
     	<!-- 购物车 -->
     	<action name="forder_*" class="forderAction" method="{1}">
-    		<result name="bank">/user/bank.jsp</result>
+    		<result name="bank"  type="redirect">/user/bank.jsp</result>
     	</action>
     	
+    	<!-- 支付 -->
+    	<action name="pay_*" class="payAction" method="{1}">
+    		<result name="pay" >/user/pay.jsp</result>
+    	</action>
     	
     	<!-- 后台商品管理模块 -->
     	<action name="product_*" class="productAction" method="{1}">

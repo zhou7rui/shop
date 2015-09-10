@@ -2,23 +2,28 @@ package com.dzwz.shop.service;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+
 
 import com.dzwz.shop.model.BackData;
 import com.dzwz.shop.model.SendData;
 import com.dzwz.shop.util.DigestUtil;
 
 
-@Service
-public class PayServiceImpl  {
+
+public class PayServiceImpl implements PayService {
 	
-	@Value("#{prop.key}")
+	@Value("#{prop[key]}")
 	private String key;
-	@Value("#{prop.p1_MerId}")
+	@Value("#{prop[p1_MerId]}")
 	private String p1_MerId;
-	@Value("#{prop.p8_Url}")	
+	@Value("#{prop[p8_Url]}")	
 	private String p8_Url;
+	
+
+	private DigestUtil digestUtil;
 	
 	
 
@@ -61,9 +66,10 @@ public class PayServiceImpl  {
 		/* (non-Javadoc)
 		 * @see cn.itcast.shop.service.impl.PayService#saveDataToRequest(java.util.Map, cn.itcast.shop.pojo.SendData)
 		 */
-
+		@Override
 		public Map<String, Object> saveDataToRequest(Map<String, Object> request,
 				SendData sendData) {
+			digestUtil = new DigestUtil();
 			// 返回了被追加的字符串
 			String joinParam = joinSendDataParam(sendData);
 			request.put("p0_Cmd", sendData.getP0_Cmd());
@@ -79,7 +85,7 @@ public class PayServiceImpl  {
 			request.put("pa_MP", sendData.getPa_MP());
 			request.put("pd_FrpId", sendData.getPd_FrpId());
 			request.put("pr_NeedResponse", sendData.getPr_NeedResponse());
-			request.put("hmac", DigestUtil.hmacSign(joinParam, key));
+			request.put("hmac", digestUtil.hmacSign(joinParam, key));
 			return request;
 		}
 		
@@ -101,6 +107,16 @@ public class PayServiceImpl  {
 			infoBuffer.append(backData.getR9_BType());
 			return infoBuffer.toString();
 		}
-		
+		@Override
+		// 对返回来的数据进行加密,并且和传过来的密文进行比较,如果OK则说明数据没有被篡改
+		public boolean checkBackData(BackData backData){
+			
+			digestUtil = new DigestUtil();
+			String joinParam=this.joinBackDataParam(backData);
+			// 加密后得到自己的密文
+			String md5 = digestUtil.hmacSign(joinParam.toString(),key);	
+			// 密文和传过来密文比较
+			return md5.equals(backData.getHmac());
+		}
 		
 }

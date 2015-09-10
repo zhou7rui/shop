@@ -15,6 +15,7 @@
 		<property name="fileUplaod" ref="fileUpload"></property>
 		<property name="sorderService" ref="sorderService"></property>
 		<property name="forderService" ref="forderService"></property>
+		<property name="payService" ref="payService"></property>
 	</bean>  
 	
 	<bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype" parent="baseAction">
@@ -34,6 +35,8 @@
 	
 	
 	<bean id="forderAction" class="com.dzwz.shop.action.ForderAction" scope="prototype" parent="baseAction"></bean>
+	
+	<bean id="payAction" class="com.dzwz.shop.action.PayAction" scope="prototype" parent="baseAction"></bean>
 	
 	
 	</beans>
