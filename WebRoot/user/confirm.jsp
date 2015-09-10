@@ -4,8 +4,13 @@
   <head>
   	  <title>订单确认</title>
 	  <%@include file="/public/head.jspf" %>	
+	  <% response.setHeader("cache-control", "no-store");%>
   </head>
   <body>
+  	<c:if test="${empty sessionScope.forder.sorders}">
+  			<!-- 如果购物车为空则跳转到首页 -->
+  			<c:redirect url="/index.jsp" />
+  	</c:if>
   	 <div class="wrapper">
         <div class="header">
             <div class="header_container">

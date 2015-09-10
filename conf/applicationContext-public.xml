@@ -11,9 +11,19 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<context:component-scan base-package="com.dzwz.shop.." />
 	
+	<!--加载 properties文件 -->
+	<bean id="prop" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath*:pay.propertits</value>
+				<value>classpath*:db.propertits</value>
+			</list>
+		</property>
+	</bean> 
+	
 	<!-- 配置jndi数据源 -->
 	<!-- <bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="java:comp/env/mydb"></property>
+		<property name="jndiName" value="java:comp/env/shop"></property>
 	</bean> -->
 	
 	<!-- 配置DataSource -->
@@ -62,6 +72,8 @@
 	
 	<!-- 文件上传工具类 -->
 	<bean id="fileUpload" class="com.dzwz.shop.util.FileUploadUtil"></bean>
+	
+	
 	
 	
 	</beans>

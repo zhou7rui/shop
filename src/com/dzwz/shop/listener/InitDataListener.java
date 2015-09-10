@@ -12,6 +12,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.dzwz.shop.model.Product;
 import com.dzwz.shop.service.IndexService;
+import com.dzwz.shop.util.FileUpload;
 import com.dzwz.shop.util.ProductTimerTask;
 
 
@@ -30,7 +31,9 @@ public class InitDataListener implements ServletContextListener {
 	
     private ApplicationContext context=null;
 	
-    private ProductTimerTask   productTimerTask;
+    private ProductTimerTask   productTimerTask; 
+    
+    private FileUpload fileUpload;
 
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
@@ -44,9 +47,16 @@ public class InitDataListener implements ServletContextListener {
 		//ServletContext 中获取Sping 配置信息 通过工具类加载
 		 context = WebApplicationContextUtils.getWebApplicationContext(event.getServletContext());	
 		 productTimerTask  = (ProductTimerTask) context.getBean("productTimerTask");
+		 fileUpload  = (FileUpload) context.getBean("fileUpload");
 		 productTimerTask.setApplication(event.getServletContext());
 		 //设置守护线程的让首页的数据每隔20分钟同步一次  定时刷新
 		 new  Timer(true).schedule(productTimerTask, 0, 1000*60*20);
+		 
+		 
+		 //初始化银行图标 得到容器路径
+		 String bankPath = event.getServletContext().getRealPath("/images/bank");
+		 System.out.println("*******"+bankPath+"********************************");
+		 event.getServletContext().setAttribute("bankImage",fileUpload.getBankImage(bankPath) );
 	}
 
 }

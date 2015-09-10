@@ -26,9 +26,9 @@ public class UserAction extends BaseAction<User> {
 	
 	public String login(){
 		//进行登录的判断
-	    String  isCorrect= userService.login(model);
-	    if(isCorrect.equals("success")){
-	    	session.put("userInfo", model);
+	    User  user= userService.login(model);
+	    if(user!=null){
+	    	session.put("userInfo", user);
 	    	if(session.get("goURL")==null){
 	    		return "index";
 	    	}else{

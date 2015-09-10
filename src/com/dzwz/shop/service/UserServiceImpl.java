@@ -21,20 +21,13 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 	public void setBaseDao(BaseDao<User> baseDao) {
 		this.baseDao = baseDao;
 	   }
-	public String login(User user){
+	
+	public User login(User user){
 		
-		User use1 = userDao.QueryUser(user);
-		//检查用户是否存在
-		if(use1!=null){	
-			//登录校验
-			if(use1.getLogin().equals(user.getLogin())
-					&&use1.getPwd().equals((user.getPwd()))){
-				return "success";
-			}else{
-				return "failure";
-			}
-		}
-		return "failure";
+		 userDao.QueryUser(user);
+		
+		
+		return userDao.QueryUser(user);
 	}
 
 	

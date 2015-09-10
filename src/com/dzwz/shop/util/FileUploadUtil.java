@@ -1,6 +1,7 @@
 package com.dzwz.shop.util;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ import org.aspectj.util.FileUtil;
 
 public class FileUploadUtil implements FileUpload {
 	
-
+	
 	//1.通过文件名获取拓展名
 	private String getFileExt(String fileName){
 		return FilenameUtils.getExtension(fileName);
@@ -47,6 +48,17 @@ public class FileUploadUtil implements FileUpload {
 		}finally{
 			fileImage.getFile().delete();
 		}
+	}
+	
+	//获得银行图标文件
+	public String[] getBankImage(String bankPath){
+		return new File(bankPath).list(new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				//文件后缀名过滤
+				return name.endsWith(".gif");
+			}
+		});
 	}
 	
 }
