@@ -67,9 +67,3 @@ $RECYCLE.BIN/
 /.settings
 /.springBeans
 /com
-/shop.sql
-/s.pdm
-/shop-sql.cdm
-/db.properties
-/filePath.properties
-/pay.properties

@@ -36,6 +36,7 @@
 	<!-- 购物车-->
 	
 	<bean id="forderService" class="com.dzwz.shop.service.ForderServiceImpl">
+		<property name="forderDao" ref="ForderDao"></property>
 		<property name="baseDao" ref="ForderDao"></property>
 	</bean>
 	

@@ -4,8 +4,7 @@ import java.util.Map;
 
 
 import org.apache.struts2.interceptor.ParameterAware;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+
 
 import com.dzwz.shop.model.BackData;
 import com.dzwz.shop.model.Forder;
@@ -44,7 +43,7 @@ public class PayAction extends BaseAction<Object> implements ParameterAware{
 		SendData sendData = (SendData) model;
 		sendData.setP2_Order(forder.getId().toString());
 		sendData.setP3_Amt(forder.getPrice().toString());
-		sendData.setPa_MP(user.getPhone()+user.getEmail());
+		sendData.setPa_MP(user.getPhone()+","+user.getEmail());
 		//对参数追加 加密获取签名   存储到request 中
 		payService.saveDataToRequest(request, sendData);
 		return "pay";
@@ -52,10 +51,22 @@ public class PayAction extends BaseAction<Object> implements ParameterAware{
 	
 	
 	public void backpay(){
+		
+		//得到传回的参数
 		BackData backData = (BackData) model;
+		//MD5加密后对比是否成功
 	    boolean isOk =	payService.checkBackData(backData);
 	    if(isOk){
-	    	System.out.println("-------sessucc-------");
+	    	//订单号
+	    	int id = Integer.parseInt(backData.getR6_Order());
+	    	//更新状态信息
+	    	forderService.updateForder(id, 2);
+	    	//发送邮件
+	    	String Email = backData.getR8_MP().split(",")[0];
+	    	massageUtil.sendEmail(id, Email);
+	    	//发送短信
+	    	String phone = backData.getR8_MP().split(",")[1];
+	    	massageUtil.sendmessage(phone, id);
 	    }
 	    else{
 	    	System.out.println("---------失败------------");

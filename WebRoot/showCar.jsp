@@ -4,6 +4,20 @@
 <head>
 	<title>购物车</title>
 	<%@include file="/public/head.jspf"%>
+	<script type="text/javascript">
+		$(function(){
+			$(".text").change(function(){
+			 var number = this.value;
+			 if(parseInt(number)==number && !isNaN(number) && number==0){
+			   alert($(this).parents("tr:first").attr("title"));
+			  }else{
+			  	this.value = $(this).arrt("title");
+			  }
+			});
+		
+		
+		});
+	</script>
 <body>
 	<div class="wrapper">
 		<div class="header">
@@ -115,8 +129,8 @@
 					
 					<c:forEach items="${sessionScope.forder.sorders}" var = "sorder">
 					
-					<tr>
-						<td class="align_center"><a href="#" class="edit">${sorder.product.id}</a>
+					<tr title="${sorder.product.id}">
+						<td class="align_center" ><a href="#" class="edit">${sorder.product.id}</a>
 						</td>
 						<td width="80px"><img src="images/cart1.jpg" width="80"
 							height="80" />
@@ -126,9 +140,7 @@
 						<td class="align_center vline"><span class="price">￥${sorder.price}</span>
 						</td>
 						<td class="align_center vline">
-							<div class="wrap-input">
-								<input class="text" style="height: 20px;" value="${sorder.number}">		
-							</div>
+							<input class="text" style="height: 20px;" title="${sorder.number}" value="${sorder.number}">		
 						</td>
 						<td class="align_center vline"><span class="price">￥${sorder.price}</span>
 						</td>

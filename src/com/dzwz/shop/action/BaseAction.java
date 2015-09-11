@@ -6,12 +6,13 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.dzwz.shop.service.PayService;
-
 import com.dzwz.shop.service.CategoryService;
 import com.dzwz.shop.service.ForderService;
 import com.dzwz.shop.service.ProductService;
@@ -19,6 +20,7 @@ import com.dzwz.shop.service.SorderService;
 import com.dzwz.shop.service.UserService;
 import com.dzwz.shop.util.FileImage;
 import com.dzwz.shop.util.FileUpload;
+import com.dzwz.shop.util.MassageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -63,6 +65,9 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	public InputStream inputStream;
 	
 	public FileImage fileImage;
+	
+	@Resource
+	public MassageUtil massageUtil;
 	
 	public String ids;
 

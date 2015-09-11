@@ -1,7 +1,9 @@
 package com.dzwz.shop.dao;
 
-import com.dzwz.shop.model.Forder;
+import com.dzwz.shop.model.Sorder;
 
-public class SorderDaoImpl extends BaseDaoIpml<Forder> implements ForderDao {
+public class SorderDaoImpl extends BaseDaoIpml<Sorder> implements SorderDao {
+
+	
 
 }

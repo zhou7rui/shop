@@ -1,7 +1,7 @@
 package com.dzwz.shop.dao;
 
-import com.dzwz.shop.model.Forder;
+import com.dzwz.shop.model.Sorder;
 
-public interface SorderDao extends BaseDao<Forder> {
+public interface SorderDao extends BaseDao<Sorder> {
 	
 }
