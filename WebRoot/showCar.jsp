@@ -8,8 +8,13 @@
 		$(function(){
 			$(".text").change(function(){
 			 var number = this.value;
-			 if(parseInt(number)==number && !isNaN(number) && number==0){
-			   alert($(this).parents("tr:first").attr("title"));
+			 if(parseInt(number)==number && !isNaN(number) && number>0){
+			   var productid = $(this).parents("tr:first").attr("title");
+			   $.post('sorder_updatesorder.action',{id:productid,number:number},function(total){
+						$("#total").html(total);
+			   },"text");
+			   var price = $(this).parent().prev().html()*number;
+			   $(this).parent().next().html(price.toFixed(2));
 			  }else{
 			  	this.value = $(this).arrt("title");
 			  }
@@ -137,12 +142,12 @@
 						</td>
 						<td class="align_left"><a class="pr_name" href="#">${sorder.name}</a>
 						</td>
-						<td class="align_center vline"><span class="price">￥${sorder.price}</span>
+						<td class="align_center vline">${sorder.price}
 						</td>
 						<td class="align_center vline">
 							<input class="text" style="height: 20px;" title="${sorder.number}" value="${sorder.number}">		
 						</td>
-						<td class="align_center vline"><span class="price">￥${sorder.price}</span>
+						<td class="align_center vline"><span class="price">￥${sorder.price*sorder.number}</span>
 						</td>
 						<td class="align_center vline"><a href="#" class="remove"></a>
 						</td>
@@ -170,7 +175,7 @@
 							<tr>
 								<td width="60%" colspan="1" class="align_left total"><strong>总计</strong>
 								</td>
-								<td class="align_right" style=""><span class="total"><strong>￥${sessionScope.forder.price}</strong>
+								<td class="align_right" style=""><span class="total"><strong id="total">￥${sessionScope.forder.price}</strong>
 								</span>
 								</td>
 							</tr>

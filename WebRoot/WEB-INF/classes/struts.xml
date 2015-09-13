@@ -90,6 +90,9 @@
     	<!-- 订单项 -->
     	<action name="sorder_*" class="sorderAction" method="{1}">
     		<result name="showCar" type="redirect">/showCar.jsp</result>
+    		<result name="stream" type="stream">
+    		    <param name="inputStream">inputStream</param>
+    		</result>
     	</action>
     	
     	<!-- 购物车 -->

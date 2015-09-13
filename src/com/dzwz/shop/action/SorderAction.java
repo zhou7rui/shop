@@ -1,7 +1,8 @@
 package com.dzwz.shop.action;
 
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
-
 
 import com.dzwz.shop.model.Forder;
 import com.dzwz.shop.model.Product;
@@ -40,5 +41,15 @@ public class SorderAction extends BaseAction<Sorder> {
 		
 	}
 	
+	//根据id更新数量和价格
+	public String updatesorder() throws UnsupportedEncodingException{
+		Forder forder = (Forder) session.get("forder");
+		forder = sorderService.upadteSorder(forder, model);
+		forder.setPrice(forderService.totalPrice(forder));
+		session.put("forder", forder);
+		//返回流格式
+		inputStream = new ByteArrayInputStream(forder.getPrice().toString().getBytes("utf-8"));
+		return "stream";
+	}
 
 }

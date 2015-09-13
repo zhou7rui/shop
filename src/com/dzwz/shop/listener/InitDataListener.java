@@ -1,7 +1,6 @@
 package com.dzwz.shop.listener;
 
 
-import java.util.List;
 import java.util.Timer;
 
 import javax.servlet.ServletContextEvent;
@@ -10,8 +9,7 @@ import javax.servlet.ServletContextListener;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.dzwz.shop.model.Product;
-import com.dzwz.shop.service.IndexService;
+
 import com.dzwz.shop.util.FileUpload;
 import com.dzwz.shop.util.ProductTimerTask;
 

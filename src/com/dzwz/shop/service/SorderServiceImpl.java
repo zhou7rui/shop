@@ -54,4 +54,16 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 		return sorder;
 	}
 
+	@Override
+	public Forder upadteSorder(Forder forder, Sorder sorder) {
+		for(Sorder temp:forder.getSorders()){
+			if(temp.getProduct().getId().equals(sorder.getId())){
+				temp.setNumber(sorder.getNumber());
+			}
+		}
+		return forder;
+	}
+	
+	
+	
 }
