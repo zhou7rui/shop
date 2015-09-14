@@ -11,13 +11,13 @@
 			width:200px;
 			
 		}
-		#menu ul{
+		 ul{
 			list-style: none;
 		}
-		#menu li{
+		 li{
 			border-bottom:1px solid #fff;
 		}
-		#menu ul li a{
+		 ul li a{
 			display: block;
 			padding:5px;
 			background:#008792;
@@ -44,7 +44,10 @@
  			  <li><a href="#" title="send_product_manage.action">商品管理</a></li>
  		    </ul>
 		</div>
-		<div title="系统设置">
+		<div  title="系统设置">
+ 			 <ul>
+ 			  <li><a href="#" title="send_sale_sale.action">销售额</a></li>
+ 		    </ul>
 		
  		    
 		</div>

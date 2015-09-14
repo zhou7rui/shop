@@ -3,10 +3,12 @@ package com.dzwz.shop.action;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
+import java.util.List;
 
 import com.dzwz.shop.model.Forder;
 import com.dzwz.shop.model.Product;
 import com.dzwz.shop.model.Sorder;
+import com.opensymphony.xwork2.ActionContext;
 
 
 
@@ -51,5 +53,12 @@ public class SorderAction extends BaseAction<Sorder> {
 		inputStream = new ByteArrayInputStream(forder.getPrice().toString().getBytes("utf-8"));
 		return "stream";
 	}
-
+	
+	public String querySale(){
+		List<Object> jsonList = sorderService.querySale(model.getNumber());
+		//将对象压入值栈栈顶
+		ActionContext.getContext().getValueStack().push(jsonList);
+		return "jsonList";
+	}
+	
 }

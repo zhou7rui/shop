@@ -1,5 +1,7 @@
 package com.dzwz.shop.service;
 
+import java.util.List;
+
 import com.dzwz.shop.model.Forder;
 import com.dzwz.shop.model.Product;
 import com.dzwz.shop.model.Sorder;
@@ -28,5 +30,12 @@ public interface SorderService extends BaseService<Sorder> {
 		 * @return
 		 */
 		public Forder upadteSorder(Forder forder, Sorder sorder);
+		/**
+		 * 查询销售额
+		 * @param number
+		 * @return
+		 */
+		
+		public List<Object> querySale(int number);
 	
 }

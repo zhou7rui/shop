@@ -3,15 +3,27 @@ package com.dzwz.shop.service;
 
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import net.sf.json.JSONSerializer;
+import net.sf.json.test.JSONAssert;
+
+import com.dzwz.shop.dao.SorderDao;
 import com.dzwz.shop.model.Forder;
 import com.dzwz.shop.model.Product;
 import com.dzwz.shop.model.Sorder;
 
 public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 		SorderService {
-
+	
+	private SorderDao sorderDao;
+	 
+	
+	
+	public void setSorderDao(SorderDao sorderDao) {
+		this.sorderDao = sorderDao;
+	}
 
 	@Override
 	public Forder addSorder(Forder forder, Product product) {
@@ -62,6 +74,12 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 			}
 		}
 		return forder;
+	}
+
+	@Override
+	public List<Object> querySale(int number) {
+	
+		return sorderDao.querySale(number);
 	}
 	
 	

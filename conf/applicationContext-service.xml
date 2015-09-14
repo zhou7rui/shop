@@ -42,6 +42,7 @@
 	
 	<!-- 购物项 -->
 	<bean id="sorderService" class="com.dzwz.shop.service.SorderServiceImpl">
+		<property name="sorderDao" ref="SorderDao"></property>
 		<property name="baseDao" ref="SorderDao"></property>
 	</bean>
 	
