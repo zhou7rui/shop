@@ -14,10 +14,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements
 		this.categoryDao = categoryDao;
 	}
 	
-	public void setBaseDao(BaseDao<Category> baseDao) {
-		this.baseDao = baseDao;
-	   }
-	
+
 	/**
 	 * 
 	 * 类别管理查询出类别表以及关联的user

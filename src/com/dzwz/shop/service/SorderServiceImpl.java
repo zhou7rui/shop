@@ -17,7 +17,7 @@ import com.dzwz.shop.model.Sorder;
 public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 		SorderService {
 	
-	private SorderDao sorderDao;
+	public SorderDao sorderDao;
 	 
 	
 	

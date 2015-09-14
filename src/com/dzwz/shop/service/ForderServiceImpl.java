@@ -9,7 +9,7 @@ import com.dzwz.shop.model.Sorder;
 public class ForderServiceImpl extends BaseServiceImpl<Forder> implements
 		ForderService {
 	
-	 private ForderDao forderDao;
+	 public ForderDao forderDao;
 	 
 	 
 

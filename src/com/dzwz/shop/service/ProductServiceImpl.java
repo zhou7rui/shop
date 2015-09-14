@@ -15,9 +15,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements
 		this.productDao = productDao;
 	}
 	
-	public void setBaseDao(BaseDao<Product> baseDao) {
-		this.baseDao = baseDao;
-	   }
+	
 	
 	/**
 	 * 
