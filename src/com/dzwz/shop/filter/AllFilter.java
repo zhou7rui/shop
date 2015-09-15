@@ -8,14 +8,14 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 public class AllFilter implements Filter {
 	
 	private FilterConfig config;
-	
+	private String charset="utf-8";
 	@Override
 	public void destroy() {
 
@@ -24,10 +24,12 @@ public class AllFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain arg2) throws IOException, ServletException {
-		HttpServletRequest  reuqest =(HttpServletRequest)req;
-		String charset = config.getInitParameter("charset");
+		HttpServletRequest  reuquest =(HttpServletRequest)req;
+		HttpServletResponse response = (HttpServletResponse) res;
+		charset = config.getInitParameter("charset");
 		if(charset!=null && !charset.equals("")){
-			reuqest.setCharacterEncoding("utf-8");
+			reuquest.setCharacterEncoding(charset);
+			
 		}
 		arg2.doFilter(req, res);
 
@@ -35,8 +37,8 @@ public class AllFilter implements Filter {
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-			this.config =arg0;
+	public void init(FilterConfig config) throws ServletException {
+			this.config =config;
 	}
 
 }

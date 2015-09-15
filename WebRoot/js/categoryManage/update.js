@@ -3,13 +3,13 @@ $(function(){
 			var dg = parent.$("iframe[title='类别管理']").get(0).contentWindow.$("#dg");
 			//用户展示
 			$('#cc').combobox({    
-				url:'user_queryUser.action',  
+				url:'account_queryAccount.action',  
 				width:50,
 				height:20,
 				panelWidth:50,
 				panelHeight:80,
 				valueField:'id',    
-				textField:'userName',
+				textField:'name',
 				editable:false
 			}); 
 			//表单的回显
@@ -18,7 +18,7 @@ $(function(){
 				id:rows[0].id,
 				type:rows[0].type,
 				hot:rows[0].hot,
-				'user.id':rows[0].user.id
+				'account.id':rows[0].account.id
 				
 			});
 

@@ -12,6 +12,10 @@
 	 	<property name="sessionFactory" ref="sessionFactory"></property>
 	 </bean>
 	 
+	 <bean id="accountDao" class="com.dzwz.shop.dao.AccountDaoImpl" parent="baseDao">
+	</bean>  
+	
+	 
 	 <bean id="userDao" class="com.dzwz.shop.dao.UserDaoImpl" parent="baseDao">
 	</bean>  
 	

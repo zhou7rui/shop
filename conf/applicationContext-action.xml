@@ -16,9 +16,10 @@
 		<property name="sorderService" ref="sorderService"></property>
 		<property name="forderService" ref="forderService"></property>
 		<property name="payService" ref="payService"></property>
+		<property name="accountService" ref="accountService"></property>
 	</bean>  
 	
-	<bean id="login" class="com.dzwz.shop.action.LoginAction" scope="prototype" parent="baseAction">
+	<bean id="accountAction" class="com.dzwz.shop.action.AccountAction" scope="prototype" parent="baseAction">
 	</bean>
 	<bean id="userAction" class="com.dzwz.shop.action.UserAction" scope="prototype" parent="baseAction">
 	</bean>

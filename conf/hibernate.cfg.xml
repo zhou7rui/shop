@@ -27,7 +27,7 @@
 		<!-- 配置那些类支持二级缓存 -->
 		<class-cache usage="read-only"
 			class="com.dzwz.shop.model.Product" />
-		
+
 	</session-factory>
 
 </hibernate-configuration>

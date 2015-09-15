@@ -10,6 +10,10 @@
 	 <bean id="baseService" class="com.dzwz.shop.service.BaseServiceImpl" init-method="init" lazy-init="true"></bean>
 	 
 
+	 <!-- 管理用户service -->
+	 <bean id="accountService" class="com.dzwz.shop.service.AccountServiceImpl"  parent="baseService">
+	 	<property name="accountDao" ref="accountDao"></property>
+	 </bean>
 	 <!-- 用户service -->
 	 <bean id="userService" class="com.dzwz.shop.service.UserServiceImpl"  parent="baseService">
 	 	<property name="userDao" ref="userDao"></property>

@@ -24,7 +24,7 @@
     </div> 
     <div>   
         <label for="name">所属用户:</label>   
-        <input  type="text" name="user.id" id="cc" />   
+        <input  type="text" name="account.id" id="cc" />   
     </div> 
     <input type="hidden" name="id" />
 	<div>

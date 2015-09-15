@@ -15,7 +15,7 @@ public class Category implements java.io.Serializable {
 	private Integer id;
 	private String type;
 	private Boolean hot;
-	private User user;
+	private Account account;
 
 	// Constructors
 
@@ -55,19 +55,15 @@ public class Category implements java.io.Serializable {
 		this.hot = hot;
 	}
 
-	public User getUser() {
-		return user;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", type=" + type + ", hot=" + hot
-				+ ", user=" + user + "]";
-	}
+
 
 	
 	

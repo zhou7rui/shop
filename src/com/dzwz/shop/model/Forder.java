@@ -41,6 +41,16 @@ public class Forder implements java.io.Serializable {
 
 	// Property accessors
 
+	@Override
+	public String toString() {
+		return "Forder [id=" + id + ", user=" + user + ", status=" + status
+				+ ", name=" + name + ", phone=" + phone + ", remak=" + remak
+				+ ", price=" + price + ", createdate=" + createdate + ", post="
+				+ post + ", address=" + address + ", sorders=" + sorders + "]";
+	}
+
+
+
 	public Integer getId() {
 		return this.id;
 	}

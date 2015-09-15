@@ -22,7 +22,7 @@ public class CategoryDaoImpl extends BaseDaoIpml<Category> implements CategoryDa
 	public List<Category> QueryJoinUser(String type, int page, int size) {
 		
 		//迫切左外连接
-		String hql ="FROM Category c LEFT JOIN FETCH c.user WHERE c.type like :type";
+		String hql ="FROM Category c LEFT JOIN FETCH c.account WHERE c.type like :type";
 		return getSession().createQuery(hql)
 				.setString("type", "%"+type+"%")
 				.setFirstResult((page-1)*size)

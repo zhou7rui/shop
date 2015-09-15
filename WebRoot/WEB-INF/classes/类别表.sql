@@ -51,3 +51,10 @@ select product0_.id as id1_0_, category1_.id as id0_1_, product0_.name as name1_
             on product0_.cid=category1_.id 
     where
         product0_.name like "% %" limit 8
+
+insert into category(type,hot,aid) values('男装',0,1);
+
+select * from category;
+        
+        
+        

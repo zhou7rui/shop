@@ -12,9 +12,10 @@ import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.dzwz.shop.service.PayService;
+import com.dzwz.shop.service.AccountService;
 import com.dzwz.shop.service.CategoryService;
 import com.dzwz.shop.service.ForderService;
+import com.dzwz.shop.service.PayService;
 import com.dzwz.shop.service.ProductService;
 import com.dzwz.shop.service.SorderService;
 import com.dzwz.shop.service.UserService;
@@ -55,6 +56,8 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	public ForderService forderService;
 	
 	public SorderService sorderService;
+	
+	public AccountService accountService;
 	
 	public ProductService productService;
 	
@@ -133,6 +136,10 @@ public class BaseAction<T> extends ActionSupport implements RequestAware,
 	
 	public void setPayService(PayService payService) {
 		this.payService = payService;
+	}
+
+	public void setAccountService(AccountService accountService) {
+		this.accountService = accountService;
 	}
 
 	public void setUserService(UserService userService) {

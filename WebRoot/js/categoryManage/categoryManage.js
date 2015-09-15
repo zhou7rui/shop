@@ -125,12 +125,12 @@ $(function(){
 			},
 			align : 'right'
 		}, {
-			field : 'user',
+			field : 'account',
 			title : '所属用户',
 			width : 100,
 			formatter: function(value,row,index){
-				if (row.user!=null){
-				  return row.user.role;
+				if (row.account!=null){
+				  return row.account.name;
 				} else {
 					return value;
 				}

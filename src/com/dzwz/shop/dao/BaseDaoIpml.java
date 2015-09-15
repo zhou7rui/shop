@@ -7,6 +7,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.dzwz.shop.model.Account;
+
 @SuppressWarnings("unchecked")
 public  class BaseDaoIpml<T> implements BaseDao<T> {
 	
@@ -54,8 +56,9 @@ public  class BaseDaoIpml<T> implements BaseDao<T> {
 
 	@Override
 	public List<T> query() {
-		String hql = "FROM  "+clazz.getSimpleName()+" c LEFT OUTER JOIN FETCH c.user";
+		String hql = "FROM  "+clazz.getSimpleName();
 		return getSession().createQuery(hql).list();
 	}
+
 
 }
