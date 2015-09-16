@@ -35,7 +35,12 @@ public interface SorderService extends BaseService<Sorder> {
 		 * @param number
 		 * @return
 		 */
-		
 		public List<Object> querySale(int number);
 	
+		/**
+		 * 删除订单项
+		 * @param forder
+		 * @return
+		 */
+		public Forder removeSorder(Forder forder, Sorder sorder);
 }

@@ -1,8 +1,11 @@
 package com.dzwz.shop.model;
 
+
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Forder entity. @author MyEclipse Persistence Tools
@@ -22,7 +25,7 @@ public class Forder implements java.io.Serializable {
 	private Date createdate;
 	private String post;
 	private String address;
-	private Set<Sorder> sorders = new HashSet(0);
+	private List<Sorder> sorders = new CopyOnWriteArrayList<Sorder>();
 
 	// Constructors
 
@@ -32,7 +35,7 @@ public class Forder implements java.io.Serializable {
 	
 	
 
-	public Forder(Set sorders) {
+	public Forder(CopyOnWriteArrayList sorders) {
 		super();
 		this.sorders = sorders;
 	}
@@ -131,12 +134,17 @@ public class Forder implements java.io.Serializable {
 		this.address = address;
 	}
 
-	public Set<Sorder> getSorders() {
-		return this.sorders;
+
+
+	public List<Sorder> getSorders() {
+		return sorders;
 	}
 
-	public void setSorders(Set<Sorder> sorders) {
+
+
+	public void setSorders(List<Sorder> sorders) {
 		this.sorders = sorders;
 	}
+
 
 }

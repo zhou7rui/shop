@@ -2,8 +2,10 @@ package com.dzwz.shop.action;
 
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.dzwz.shop.model.Forder;
 import com.dzwz.shop.model.Product;
@@ -30,7 +32,7 @@ public class SorderAction extends BaseAction<Sorder> {
 		
 		//2.判断当前购物车是否存在,，没有则创建一个
 		if(session.get("forder")==null){
-			session.put("forder", new Forder(new HashSet<>()));
+			session.put("forder", new Forder(new CopyOnWriteArrayList()));
 		}
 		Forder forder  = (Forder) session.get("forder");
 		//3.将得到的商品信息放进购物项
@@ -44,21 +46,50 @@ public class SorderAction extends BaseAction<Sorder> {
 	}
 	
 	//根据id更新数量和价格
-	public String updatesorder() throws UnsupportedEncodingException{
+	public String updatesorder(){
 		Forder forder = (Forder) session.get("forder");
 		forder = sorderService.upadteSorder(forder, model);
 		forder.setPrice(forderService.totalPrice(forder));
 		session.put("forder", forder);
 		//返回流格式
-		inputStream = new ByteArrayInputStream(forder.getPrice().toString().getBytes("utf-8"));
+		try {
+			inputStream = new ByteArrayInputStream(forder.getPrice().toString().getBytes("utf-8"));
+		} catch (UnsupportedEncodingException e) {
+			throw new RuntimeException(e);
+		}
 		return "stream";
 	}
 	
+	/**
+	 * 销售额查询
+	 * @return
+	 */
 	public String querySale(){
 		List<Object> jsonList = sorderService.querySale(model.getNumber());
 		//将对象压入值栈栈顶
 		ActionContext.getContext().getValueStack().push(jsonList);
 		return "jsonList";
 	}
+	
+	/**
+	 * 订单项删除
+	 * 
+	 * @return
+	 */
+	public String removeSorder(){
+		Forder forder = (Forder) session.get("forder");
+		forder = sorderService.removeSorder(forder, model);
+		forder.setPrice(forderService.totalPrice(forder));
+		session.put("forder", forder);
+		try {
+			
+			inputStream = new ByteArrayInputStream(forder.getPrice().toString().getBytes("utf-8"));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return "stream";
+	}
+
+	
 	
 }

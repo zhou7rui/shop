@@ -23,7 +23,10 @@ public class UserAction extends BaseAction<User> {
 		jsonList =userService.query();
 		return "jsonlist";
 	}
-	
+	/**
+	 * 登录
+	 * @return
+	 */
 	public String login(){
 		//进行登录的判断
 	    User  user= userService.login(model);
@@ -38,6 +41,14 @@ public class UserAction extends BaseAction<User> {
 	    	request.put("error", "登录失败");
 	    	return "loginFa";
 	    }
+	}
+	/**
+	 * 登出
+	 * @return
+	 */
+	public String logout(){
+		session.put("userInfo",null);
+		return "goURL";
 	}
 	
 }

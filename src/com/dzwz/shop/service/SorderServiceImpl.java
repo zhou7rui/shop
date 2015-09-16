@@ -65,7 +65,12 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 		sorder.setProduct(product);
 		return sorder;
 	}
-
+	/**
+	 * 更新订单
+	 * @author zrui
+	 * @time 2015年9月8日16:51:12
+	 * @vserion v.0.1
+	 */
 	@Override
 	public Forder upadteSorder(Forder forder, Sorder sorder) {
 		for(Sorder temp:forder.getSorders()){
@@ -75,12 +80,31 @@ public class SorderServiceImpl extends BaseServiceImpl<Sorder> implements
 		}
 		return forder;
 	}
-
+	/**
+	 * 销售额查询
+	 * @author zrui
+	 * @time 2015年9月8日16:51:12
+	 * @vserion v.0.1
+	 */
 	@Override
 	public List<Object> querySale(int number) {
 	
 		return sorderDao.querySale(number);
 	}
+	/**
+	 * 订单项删除
+	 * 
+	 */
+	@Override
+	public Forder removeSorder(Forder forder, Sorder sorder) {
+		for(Sorder temp : forder.getSorders()){
+			if(temp.getProduct().getId().equals(sorder.getId())){
+				forder.getSorders().remove(temp);
+			}
+		}
+		return forder;
+	}
+	
 	
 	
 	

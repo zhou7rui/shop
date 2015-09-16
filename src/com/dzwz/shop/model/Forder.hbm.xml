@@ -37,11 +37,12 @@
         <property name="address" type="java.lang.String">
             <column name="address" length="50" not-null="true" />
         </property>
-        <set name="sorders" inverse="true" cascade="all">
+        <list name="sorders" inverse="true" cascade="all">
             <key>
                 <column name="fid" />
             </key>
+            <index column="[index]"></index>
             <one-to-many class="com.dzwz.shop.model.Sorder" />
-        </set>
+        </list>
     </class>
 </hibernate-mapping>

@@ -7,17 +7,17 @@
 .primary_nav > li > a:hover{ background-color:#f38256; }
 .nav .primary_nav > li:hover > a{ color:#544f4b; }
 .nav .primary_nav li.active > a{ color:#544f4b; }
-.nav .sub_menu{ display: none; }
+.nav .sub_menu{ display: block; }
 .nav .primary_nav .active { background-color:#f38256; }
 
 /*二级菜单*/
 ul.sub_menu{ position:absolute; top:40px; left:-4000px; background-color: rgba(255, 255, 255, 0.93); background:#fff\9; padding:15px 0px; z-index:100; width:980px; box-shadow:0px 5px 6px #999; border-top:solid 3px; }
 .nav .primary_nav > li:hover > ul{ left:0px; }
-ul.sub_menu > li{ width:210px; margin-left:30px; }
-ul.sub_menu li a{ line-height:20px; color:#544f4b; text-decoration:none; }
+ul.sub_menu > li{ width:935px; margin-left:30px; }
+ul.sub_menu li a{ line-height:20px; color:#544f4b; text-decoration:none;  margin-left:30px; }
 ul.sub_menu > li > a{ font-weight:bold; text-transform:uppercase; color:#312e2b; }
 ul.sub_menu > li > ul > li{ padding:5px 0px; float:none; border-bottom:dotted 1px #fff; }
-ul.sub_menu > li > ul > li:first-child{ padding-top:10px; }
+ul.sub_menu > li > ul > li:first-child{ padding-top:5px; }
 ul.sub_menu > li > ul > li:hover a{ font-weight:bold; }
 ul.sub_menu > li > ul{ border-top: solid 1px #5f5a56; margin-top:10px; }
 
