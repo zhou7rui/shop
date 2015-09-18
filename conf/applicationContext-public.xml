@@ -30,7 +30,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="user" value="root" />
 		<property name="password" value="123" />
-		<property name="jdbcUrl" value="jdbc:mysql:///shop" />
+		<property name="jdbcUrl" value="jdbc:mysql:///shop?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="driverClass" value="com.mysql.jdbc.Driver"></property> 
 		<property name="initialPoolSize" value="10"></property>
 		<property name="maxPoolSize" value="50" />

@@ -14,11 +14,11 @@
 		<global-results>
     		<result name="index">/index.jsp</result>
     		<result name="loginFa">/ulogin.jsp</result>
-    		<result name="error">/error.jsp</result>
+    		<result name="error">/error/error.jsp</result>
     	</global-results>
-    <!-- 	<global-exception-mappings>
+    	<global-exception-mappings>
     		<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
-    	</global-exception-mappings> --> 
+    	</global-exception-mappings> 
 		
 		<!-- 转发请求 -->
     	<action name="send_*_*" class="sendAction">

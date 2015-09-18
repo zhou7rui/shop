@@ -57,6 +57,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/applicationContext-action.xml
+/applicationContext-dao.xml
+/applicationContext-public.xml
+/applicationContext-service.xml
+/com
 /WebRoot
 /.classpath
 /.gitattributes
@@ -66,4 +71,3 @@ $RECYCLE.BIN/
 /.project
 /.settings
 /.springBeans
-/com

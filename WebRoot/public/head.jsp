@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set value="${pageContext.request.contextPath}" var="shop"></c:set>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <div class="header">
 	<div class="header_container">
@@ -25,7 +26,7 @@
 			<!--头部小导航结束-->
 			<!-- logo -->
 			<h1 class="logo clear fl">
-				<a href="index.html"><img src="/shop/images/logo.png" /></a>
+				<a href="index.html"><img src="${shop}/images/logo.png" /></a>
 			</h1>
 			<!-- 购物车 -->
 			<div class="minicart">
