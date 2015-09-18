@@ -12,5 +12,5 @@
    spring-3.2-persistence<br />
    spring-3.2-web<br />
    struts-2.3<br />
-   ja包地址：链接：http://pan.baidu.com/s/1kT5v23l 密码：4nui 
+   jar包地址：链接：http://pan.baidu.com/s/1kT5v23l 密码：4nui 
    
