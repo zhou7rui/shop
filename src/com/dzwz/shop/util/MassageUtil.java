@@ -14,6 +14,6 @@ public interface MassageUtil {
 	 * @param phone
 	 * @param id
 	 */
-	public abstract void sendmessage(String phone, int id);
+	public abstract void sendmessage(String phone, String info);
 
 }

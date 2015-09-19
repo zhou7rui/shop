@@ -5,7 +5,7 @@
   <head>
     <%@ include file="/public/head.jspf" %>
     <link href="${shop}/css/login.css" rel="stylesheet" type="text/css" />
-<script src="${shop}//js/login/login.js" type="text/javascript"></script>
+<script src="${shop}//js/user/login.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="main-login">

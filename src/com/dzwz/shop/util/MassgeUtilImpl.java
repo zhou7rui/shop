@@ -75,7 +75,7 @@ public class MassgeUtilImpl implements MassageUtil {
 	 */
 		
 		@Override
-		public void  sendmessage(String phone,int id){
+		public void  sendmessage(String phone,String info){
 			//状态码
 			int statusCode = 0;
 			HttpClient client = new HttpClient();
@@ -85,7 +85,7 @@ public class MassgeUtilImpl implements MassageUtil {
 			post.setParameter("Uid", "a_shop_test");
 			post.setParameter("Key", "577a28bdaec8c5efa3c5");
 			post.setParameter("smsMob", phone);
-			post.setParameter("smsText", "你的"+id+"订单已经支付成功,感谢你在本商城的购物,祝你生活愉快");
+			post.setParameter("smsText", info);
 			try {
 				//提交请求
 				statusCode = client.executeMethod(post);

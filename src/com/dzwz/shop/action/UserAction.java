@@ -2,8 +2,10 @@ package com.dzwz.shop.action;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.dzwz.shop.model.User;
+import com.dzwz.shop.util.MassgeUtilImpl;
 
 public class UserAction extends BaseAction<User> {
 
@@ -50,5 +52,22 @@ public class UserAction extends BaseAction<User> {
 		session.put("userInfo",null);
 		return "goURL";
 	}
+	/**
+	 * 
+	 * 短信验证
+	 * @return
+	 */
+	
+	public void SMS(){
+		Random random = new Random();
+		String result="";
+		for(int i=0;i<6;i++){
+		result+=random.nextInt(10);
+		}
+		String info="【睿购商城】你好，感谢你注册睿购商城,你的校验码为"+result+",了解详情http://ww.zrui.xyz";
+		massageUtil.sendmessage(model.getPhone(), info);	
+		
+	}
+	
 	
 }

@@ -66,7 +66,7 @@ public class PayAction extends BaseAction<Object> implements ParameterAware{
 	    	massageUtil.sendEmail(id, Email);
 	    	//发送短信
 	    	String phone = backData.getR8_MP().split(",")[1];
-	    	massageUtil.sendmessage(phone, id);
+	    	massageUtil.sendmessage(phone, "你的"+id+"订单已经支付成功,感谢你在本商城的购物,祝你生活愉快");
 	    }
 	    else{
 	    	System.out.println("---------失败------------");
