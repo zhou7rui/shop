@@ -1,4 +1,6 @@
 #欢迎进入 易购商城http://www.zrui.xyz
+  user:Admin
+  password:123
 ##项目才采用：struts2 + hibernate +spring + easyUI<br />
    c3p0-0.9<br />
    commons-httpclient-3.1<br />
