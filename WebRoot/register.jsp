@@ -114,32 +114,49 @@
 	<script type="text/javascript" src="js/user/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="js/user/jquery-ui.min.js"></script>
 	<script type="text/javascript">
-	$(function(){
+	var seconds = 59;
+		function countDown() {
+			$(".send").attr("disabled", true);
+			$(".send").val(seconds);
+			 if(seconds == 0){
+			 	$(".send").val("发送信息");
+			 	$(".send").attr("disabled", false);
+               return true;
+             };
+			t = setTimeout("countDown(seconds--)", 1000);
+		};
 		
-		$(".send").click(function(){
-		  	$("p").fadeIn();
-			var phone=$("#phone").val();
-			$.post('user_SMS',{phone:phone},function(result){
-				
-			},'json');
-		
-		});
-		
-		$(".next").click(function(){
-			console.log("aa");
-			$(this).parent().next().fadeIn("slow");
-			$(this).parent().hide();
-		$("#progressbar li").eq($("fieldset").index($(this).parent().next())).addClass("active");
-		});
-		$(".previous").click(function(){
-			console.log("aa");
-			$(this).parent().prev().fadeIn("slow");
-			$(this).parent().hide();
-		$("#progressbar li").eq($("fieldset").index($(this).parent())).removeClass("active");
-		});
+		$(function() {
+			$(".send").click(function() {
+				countDown();
+				$("p").fadeIn();
+				var phone = $("#phone").val();
+				$.post('user_SMS', {
+					phone : phone
+				}, function(result) {
 	
-	});
-			
+				}, 'json');
+	
+			});
+			$(".next").click(
+					function() {
+						console.log("aa");
+						$(this).parent().next().fadeIn("slow");
+						$(this).parent().hide();
+						$("#progressbar li").eq(
+								$("fieldset").index($(this).parent().next()))
+								.addClass("active");
+					});
+				$(".previous").click(
+					function() {
+						console.log("aa");
+						$(this).parent().prev().fadeIn("slow");
+						$(this).parent().hide();
+						$("#progressbar li").eq(
+								$("fieldset").index($(this).parent()))
+								.removeClass("active");
+					});
+		});
 	</script>
 		
      <!-- 引入尾部文件 -->

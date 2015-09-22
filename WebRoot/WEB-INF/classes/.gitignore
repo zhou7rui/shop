@@ -57,12 +57,12 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-/com
 /WebRoot
 /applicationContext-action.xml
 /applicationContext-dao.xml
 /applicationContext-public.xml
 /applicationContext-service.xml
+/com
 /db.properties
 /ehcache.xml
 /filePath.properties
@@ -77,3 +77,4 @@ $RECYCLE.BIN/
 /.project
 /.settings
 /.springBeans
+/README.md

@@ -13,9 +13,11 @@ import javax.mail.internet.MimeMessage;
 
 
 
+
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.springframework.stereotype.Component;
 
 /**
@@ -79,18 +81,17 @@ public class MassgeUtilImpl implements MassageUtil {
 			//状态码
 			int statusCode = 0;
 			HttpClient client = new HttpClient();
-			PostMethod post = new PostMethod("http://utf8.sms.webchinese.cn"); 
+			client.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "UTF-8");     //设置编码格式utf-8
+			PostMethod post = new PostMethod("http://yunpian.com/v1/sms/send.json");
 			//设置传递参数
-			post.addParameter("Content-Type","application/x-www-form-urlencoded;charset=gbk");//在头文件中设置转码
-			post.setParameter("Uid", "a_shop_test");
-			post.setParameter("Key", "577a28bdaec8c5efa3c5");
-			post.setParameter("smsMob", phone);
-			post.setParameter("smsText", info);
+			post.setParameter("apikey", "f7943d2b861f2afd1f6a57285612141f");
+			post.setParameter("mobile", phone);
+			post.setParameter("text", info);
 			try {
 				//提交请求
 				statusCode = client.executeMethod(post);
 				System.out.println("statusCode:"+statusCode);
-				//获取服务器换回信息
+				//获取服务器传回信息
 				String result = post.getResponseBodyAsString();
 				System.out.println("短息发送结果信息："+result);
 				
@@ -102,17 +103,20 @@ public class MassgeUtilImpl implements MassageUtil {
 			post.releaseConnection();
 			}
 			}
+		
+		
+		
 		public static void main(String[] args) {
 			//状态码
 			int statusCode = 0;
 			HttpClient client = new HttpClient();
-			PostMethod post = new PostMethod("http://utf8.sms.webchinese.cn"); 
+			client.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "UTF-8");
+			PostMethod post = new PostMethod("http://yunpian.com/v1/sms/send.json"); 
 			//设置传递参数
-			post.addParameter("Content-Type","application/x-www-form-urlencoded;charset=gbk");//在头文件中设置转码
-			post.setParameter("Uid", "a_shop_test");
-			post.setParameter("Key", "577a28bdaec8c5efa3c5");
-			post.setParameter("smsMob", "13101008846");
-			post.setParameter("smsText", "你的"+123+"订单已经支付成功,感谢你在本商城的购物,祝你生活愉快");
+		//	post.addParameter("Content-Type","application/x-www-form-urlencoded;charset=utf-8");//在头文件中设置转码
+			post.setParameter("apikey", "f7943d2b861f2afd1f6a57285612141f");
+			post.setParameter("mobile", "13101008846");
+			post.setParameter("text", "【睿购商城】欢迎使用睿购，您的手机验证码是123456。本条信息无需回复");
 			try {
 				//提交请求
 				statusCode = client.executeMethod(post);
