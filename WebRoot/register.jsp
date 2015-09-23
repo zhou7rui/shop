@@ -64,9 +64,10 @@
 	padding: 10px 5px;
 	margin: 10px 5px;
 }
-
-	
-	#msform fieldset:not(:first-of-type) {
+	#msform #fie-2{
+		display: none;
+	}
+	#msform #fie-3{
 		display: none;
 	}
 	</style>
@@ -76,21 +77,21 @@
      <!-- 引入头部文件 -->
      <jsp:include page="/public/head.jsp"></jsp:include>
      <div class="reg">
-       <form id="msform">
+       <form id="msform" action="" method="post">
        <ul id="progressbar">
 		<li class="active">第一步:设置登录名</li>
 		<li>第二步:用户信息</li>
 		<li>第三步：注册成功</li>
 	</ul>
-	   <fieldset>
+	   <fieldset id="fie-1">
 		<label>手机:</label><input type="text" name="phone" placeholder="手机" id="phone" />
-		<input type="button" name="next" class="send action-button" value="发送消息"> 
+		<input type="button" name="next" class="send action-button" value="获取验证码"> 
 		<p style="display: none">
 		<label>验证码:</label><input type="text" name="code"  placeholder="输入手机收的验证码" id="code" />
 		</p>
-		<input type="button" name="next" class="next action-button" value="下一步" />
+		<button name="next" class="next action-button" id="next-1" >下一步</button>
 	   </fieldset>
-	   <fieldset>
+	   <fieldset id="fie-2">
 			<label>用户名:</label><input type="text" name="login" placeholder="user name" />
 		
 			<label>昵称:</label><input type="text" name="name" placeholder="user name" />
@@ -99,12 +100,10 @@
 			
 			<label>再次输入密码:</label><input type="password" name="cpwd" placeholder="Confirm Password" />
 		
-			<label>邮箱:</label><input type="text" name="email" placeholder="Email" />
-			
-			<input type="button" name="previous" class="previous action-button" value="Previous" />
-			<input type="button" name="next" class="next action-button" value="下一步" />
+			<label>邮箱:</label><input type="email" name="email" placeholder="Email" />
+			<input type="submit" name="next" class="next action-button" id="next-2" value="下一步" />
 	   </fieldset>
-	   <fieldset>
+	   <fieldset id="fie-3">
 		<input type="text" name="phone" placeholder="手机" />
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
 		<input type="button" name="next" class="next action-button" value="注册" />
@@ -113,49 +112,73 @@
 	</div>
 	<script type="text/javascript" src="js/user/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="js/user/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/user/jquery-validate.js"></script>
 	<script type="text/javascript">
-	var seconds = 59;
-		function countDown() {
-			$(".send").attr("disabled", true);
-			$(".send").val(seconds);
-			 if(seconds == 0){
-			 	$(".send").val("发送信息");
-			 	$(".send").attr("disabled", false);
-               return true;
-             };
-			t = setTimeout("countDown(seconds--)", 1000);
-		};
-		
 		$(function() {
+			/************************验证 start*******************************/
+			$("form").validate({
+				debug:true,
+				rules:{
+					phone:{
+						required:true					
+					},
+					login:{
+						required:true
+					},
+					name:{
+						required:true
+					},
+					pwd:{
+						required:true,
+						rangelength:[6,12]
+					},
+					cpwd:{
+						equalTo:'#pass'
+					},
+					email:{
+						email:true
+					}
+					
+				 }
+				});
+			
+	
+		
+		/****************************验证 end***************************/
+		
+			//短信发送
 			$(".send").click(function() {
-				countDown();
+		    var step = 59;
+            var _res = setInterval(function()
+            {   
+                $(".send").attr("disabled", true);//设置disabled属性
+                $(".send").val("重新发送"+step);
+                step-=1;
+                if(step <= 0){
+                $(".send").removeAttr("disabled"); //移除disabled属性
+                $(".send").val("获取验证码");
+                clearInterval(_res);//清除setInterval
+                }
+            },1000);	
 				$("p").fadeIn();
 				var phone = $("#phone").val();
-				$.post('user_SMS', {
+				/* $.post('user_SMS', {
 					phone : phone
-				}, function(result) {
-	
-				}, 'json');
-	
+				}); */
 			});
-			$(".next").click(
-					function() {
-						console.log("aa");
-						$(this).parent().next().fadeIn("slow");
-						$(this).parent().hide();
-						$("#progressbar li").eq(
-								$("fieldset").index($(this).parent().next()))
-								.addClass("active");
-					});
-				$(".previous").click(
-					function() {
-						console.log("aa");
-						$(this).parent().prev().fadeIn("slow");
-						$(this).parent().hide();
-						$("#progressbar li").eq(
-								$("fieldset").index($(this).parent()))
-								.removeClass("active");
-					});
+			$("#next-1").click(function() {
+			//	console.log("aa");
+				var code = $("#code").val();
+				$.post('user_iScode',{code:code},function(data){
+					if(data=="true"){
+						$("#next-1").parent().hide();    //隐藏当前
+						$("#next-1").parent().next().fadeIn("slow");    // 显示下一步
+						$("#progressbar li").eq($("fieldset").index($("#next-1").parent().next())).addClass("active"); //添加class属性
+					}
+				},"text");
+				
+			});
+			
 		});
 	</script>
 		

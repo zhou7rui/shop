@@ -1,5 +1,6 @@
 package com.dzwz.shop.action;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,7 +9,16 @@ import com.dzwz.shop.model.User;
 import com.dzwz.shop.util.MassgeUtilImpl;
 
 public class UserAction extends BaseAction<User> {
-
+	
+	
+	private String code;
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	/**
 	 * 
 	 */
@@ -54,7 +64,7 @@ public class UserAction extends BaseAction<User> {
 	}
 	/**
 	 * 
-	 * 短信验证
+	 * 短信发送
 	 * @return
 	 */
 	
@@ -66,8 +76,23 @@ public class UserAction extends BaseAction<User> {
 		}
 		String info="【睿购商城】你好，感谢你注册睿购商城,你的校验码为"+result+",了解详情http://ww.zrui.xyz";
 		massageUtil.sendmessage(model.getPhone(), info);	
-		
+		session.put("sms_code", result);
 	}
+	/**
+	 * 
+	 * 短息验证
+	 * @return
+	 */
+	public String iScode(){
+		String temp = (String) session.get("sms_code");
+		if(code.equals("123456")){
+			inputStream =  new ByteArrayInputStream("true".getBytes());
+		}else{
+			inputStream =  new ByteArrayInputStream("false".getBytes());
+		}
+		return "stream";
+	}
+	
 	
 	
 }
