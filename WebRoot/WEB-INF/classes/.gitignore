@@ -57,24 +57,26 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/com
+/shop.sql
+/struts.xml
+/商品信息表.sql
 /WebRoot
 /applicationContext-action.xml
 /applicationContext-dao.xml
 /applicationContext-public.xml
 /applicationContext-service.xml
-/com
 /db.properties
 /ehcache.xml
 /filePath.properties
 /hibernate.cfg.xml
 /pay.properties
-/struts.xml
-/.classpath
-/.gitattributes
-/.gitignore
-/.myhibernatedata
 /.myumldata
 /.project
 /.settings
 /.springBeans
 /README.md
+/.classpath
+/.gitattributes
+/.gitignore
+/.myhibernatedata
