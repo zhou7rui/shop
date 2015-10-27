@@ -24,12 +24,14 @@ public class AllFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain arg2) throws IOException, ServletException {
-		HttpServletRequest  reuquest =(HttpServletRequest)req;
+		
+		HttpServletRequest  request =(HttpServletRequest)req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		charset = config.getInitParameter("charset");
 		if(charset!=null && !charset.equals("")){
-			reuquest.setCharacterEncoding(charset);
 			
+			request.setCharacterEncoding(charset);
+			response.setCharacterEncoding(charset);  
 		}
 		arg2.doFilter(req, res);
 

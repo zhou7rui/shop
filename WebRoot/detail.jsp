@@ -75,7 +75,7 @@
                 <!--详情右侧-->
                 <div class="product_rightcol fr">
                     <div id="name">
-                        <h1>${product.name}</h1> <strong>支持货到付款，新店开张，全场低至三折包邮，已购买运费险，七天无理由退换，让您购物无忧！</strong>
+                        <h1>${product.name}</h1> <strong>${product.xremark}</strong>
                     </div>
                     <ul id="summary">
                         <li id="summary-market">

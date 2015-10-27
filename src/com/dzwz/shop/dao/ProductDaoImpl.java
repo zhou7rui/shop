@@ -35,7 +35,7 @@ public class ProductDaoImpl extends BaseDaoIpml<Product> implements ProductDao {
      */
 	@Override
 	public Integer totalCategory(String name) {
-		String hql = "FROM Product p WHERE p.name like :name";
+		String hql = "FROM Product p LEFT JOIN FETCH p.cid WHERE p.name like :name";
 		return getSession().createQuery(hql).setString("name","%"+name+"%").list().size();
 	}
 	
@@ -70,4 +70,9 @@ public class ProductDaoImpl extends BaseDaoIpml<Product> implements ProductDao {
 				.setMaxResults(4)  //
 				.list();  //
 	}
+	
+	
+	
+	
+	
 }

@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>出错了</title>
-<meta http-equiv=refresh content=5;url=http://localhost:8080/shop />
+<meta http-equiv=refresh content=5;url=http://www.zrui.xyz />
 <style type=text/css>
 .font14 {
 	font-size: 14px
@@ -32,7 +32,7 @@
 				<td vAlign=top>
 					<div class=font14 align=center>
 						<strong>出错了!</strong><br />
-						<font color=#666666>5秒后自动返回<a href="http://localhost:8080/shop">易购商城</a>首页........ 
+						<font color=#666666>5秒后自动返回<a href="${shop}">易购商城</a>首页........</font> 
 					</div>
 				</td>
 			</tr>

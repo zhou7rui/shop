@@ -18,7 +18,7 @@
 						<li><a href="ulogin.jsp">登录</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="#">${userInfo.name}</a></li>
+						<li><a href="user/orderInfo.jsp">${userInfo.name}</a></li>
 						<li><a href="user_logout">退出</a></li>
 					</c:otherwise>
 				</c:choose>
@@ -40,8 +40,10 @@
 			<!-- 搜索框 -->
 			<div class="header_search">
 				<div class="form-search ">
-					<input value="请输入商品名称" class="input-text" type="text" />
+					<form action="search" method="get">
+					<input value="请输入商品名称" name="q" class="input-text" type="text" />
 					<button type="submit" title="Search"></button>
+					</form>
 				</div>
 			</div>
 		</div>

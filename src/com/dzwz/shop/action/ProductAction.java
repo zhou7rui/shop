@@ -1,8 +1,11 @@
 package com.dzwz.shop.action;
 
 import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.management.RuntimeErrorException;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -86,6 +89,40 @@ public class ProductAction extends BaseAction<Product>{
 		request.put("product", productService.queryByid(model.getId()));
 		return "detail";
 	}
+	
+	//搜索参数
+	private String q;
+	
+	public String getQ() {
+		return q;
+	}
+
+	public void setQ(String q) {
+		this.q = q;
+	}
+
+	/**
+	 * 
+	 * 商品搜索
+	 * @author zrui
+	 * @time 2015年10月20日17:38:17
+	 * @version v0.1
+	 * @return
+	 */
+	public String search(){
+		if(page == 0){
+			page = 1;
+		}
+	  //根据商品名查询 及分页支持
+	  List<Product> productinfo;
+	
+		System.out.println(q);
+		productinfo = productService.QueryJoinProduct(q.toString(),page , 10);
+		request.put("productinfo", productinfo);
+	  return "productinfo";
+	
+	}
+	
 	
 	
 }

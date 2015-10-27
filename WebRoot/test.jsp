@@ -43,6 +43,11 @@
  			<li><a href="#">商品管理</a></li>
  		</ul>
  	</div>
+ 	
+ 	
+ 	<c:forEach items="${requestScope.productinfo}" var="product">
+ 		<h3>${product.name}</h3>
+ 	</c:forEach>
  
   </body>
 </html>
